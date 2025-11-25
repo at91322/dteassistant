@@ -1,11 +1,17 @@
 #include "transcriptreviewer.h"
 #include "ui_transcriptreviewer.h"
+#include "autotab.h"
 
 TranscriptReviewer::TranscriptReviewer(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::TranscriptReviewer)
 {
     ui->setupUi(this);
+
+    // Setup auto-tab
+    setupAutoTab(ui->lineEdit_StartRow, 2);
+    setupAutoTab(ui->lineEdit_EndRow, 2);
+    setupAutoTab(ui->lineEdit_FICE, 6);
 }
 
 TranscriptReviewer::~TranscriptReviewer()

@@ -26,7 +26,7 @@
    <string>SHATATR | DTE Assistant | Lane Community College</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QLineEdit" name="lineEditStartRow">
+   <widget class="QLineEdit" name="lineEdit_StartRow">
     <property name="geometry">
      <rect>
       <x>80</x>
@@ -36,7 +36,7 @@
      </rect>
     </property>
    </widget>
-   <widget class="QLineEdit" name="lineEditEndRow">
+   <widget class="QLineEdit" name="lineEdit_EndRow">
     <property name="geometry">
      <rect>
       <x>270</x>
@@ -46,7 +46,7 @@
      </rect>
     </property>
    </widget>
-   <widget class="QLabel" name="labelStartRow">
+   <widget class="QLabel" name="label_StartRow">
     <property name="geometry">
      <rect>
       <x>20</x>
@@ -59,7 +59,7 @@
      <string>Start Row</string>
     </property>
    </widget>
-   <widget class="QLabel" name="labelEndRow">
+   <widget class="QLabel" name="label_EndRow">
     <property name="geometry">
      <rect>
       <x>210</x>
@@ -113,8 +113,8 @@
  </widget>
  <tabstops>
   <tabstop>pushButtonHome</tabstop>
-  <tabstop>lineEditStartRow</tabstop>
-  <tabstop>lineEditEndRow</tabstop>
+  <tabstop>lineEdit_StartRow</tabstop>
+  <tabstop>lineEdit_EndRow</tabstop>
   <tabstop>pushButtonGo</tabstop>
  </tabstops>
  <resources/>

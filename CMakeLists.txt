@@ -17,6 +17,7 @@ qt_add_executable(dte
     programchanger.h programchanger.cpp programchanger.ui
     diplomadates.h diplomadates.cpp diplomadates.ui
     app.rc
+    autotab.h
 
 )
 

@@ -1,11 +1,16 @@
 #include "articulator.h"
 #include "ui_articulator.h"
+#include "autotab.h"
 
 Articulator::Articulator(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::Articulator)
 {
     ui->setupUi(this);
+
+    // Setup auto-tab
+    setupAutoTab(ui->lineEdit_StartRow, 2);
+    setupAutoTab(ui->lineEdit_EndRow, 2);
 }
 
 Articulator::~Articulator()
