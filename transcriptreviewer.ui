@@ -135,11 +135,11 @@
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
  <tabstops>
-  <tabstop>pushButtonHome</tabstop>
   <tabstop>lineEdit_FICE</tabstop>
   <tabstop>lineEdit_StartRow</tabstop>
   <tabstop>lineEdit_EndRow</tabstop>
   <tabstop>pushButtonGo</tabstop>
+  <tabstop>pushButtonHome</tabstop>
  </tabstops>
  <resources/>
  <connections/>

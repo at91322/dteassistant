@@ -1,6 +1,7 @@
 #include "transcriptreviewer.h"
 #include "ui_transcriptreviewer.h"
 #include "autotab.h"
+#include "enterkeyhandler.h"
 
 TranscriptReviewer::TranscriptReviewer(QWidget *parent)
     : QMainWindow(parent)
@@ -12,6 +13,9 @@ TranscriptReviewer::TranscriptReviewer(QWidget *parent)
     setupAutoTab(ui->lineEdit_StartRow, 2);
     setupAutoTab(ui->lineEdit_EndRow, 2);
     setupAutoTab(ui->lineEdit_FICE, 6);
+
+    // Setup enter/return handling for all buttons
+    setupEnterKeyForButtons(this);
 }
 
 TranscriptReviewer::~TranscriptReviewer()

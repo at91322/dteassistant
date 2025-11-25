@@ -261,7 +261,6 @@
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
  <tabstops>
-  <tabstop>pushButtonHome</tabstop>
   <tabstop>pushButton_StandardSingleToSingle</tabstop>
   <tabstop>pushButton_StandardSingleToStacked</tabstop>
   <tabstop>pushButton_StandardStackedToSingle</tabstop>
@@ -276,6 +275,7 @@
   <tabstop>pushButton_UrgentRemove</tabstop>
   <tabstop>pushButton_UrgentAdd</tabstop>
   <tabstop>pushButton_UrgentUpdate</tabstop>
+  <tabstop>pushButtonHome</tabstop>
  </tabstops>
  <resources/>
  <connections/>

@@ -217,12 +217,12 @@
   </action>
  </widget>
  <tabstops>
-  <tabstop>pushButton_DiplDates</tabstop>
   <tabstop>pushButton_Articulate</tabstop>
   <tabstop>pushButton_TermBuilder</tabstop>
   <tabstop>pushButton_EnterCourses</tabstop>
   <tabstop>pushButton_GrabCases</tabstop>
   <tabstop>pushButton_CaseComments</tabstop>
+  <tabstop>pushButton_DiplDates</tabstop>
  </tabstops>
  <resources/>
  <connections/>

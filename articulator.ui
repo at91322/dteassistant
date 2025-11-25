@@ -82,7 +82,10 @@
      </rect>
     </property>
     <property name="text">
-     <string>GO</string>
+     <string>&amp;GO</string>
+    </property>
+    <property name="autoDefault">
+     <bool>false</bool>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButtonHome">
@@ -95,7 +98,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>Return Home</string>
+     <string>&amp;Return Home</string>
     </property>
    </widget>
   </widget>
@@ -112,10 +115,10 @@
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
  <tabstops>
-  <tabstop>pushButtonHome</tabstop>
   <tabstop>lineEdit_StartRow</tabstop>
   <tabstop>lineEdit_EndRow</tabstop>
   <tabstop>pushButtonGo</tabstop>
+  <tabstop>pushButtonHome</tabstop>
  </tabstops>
  <resources/>
  <connections/>

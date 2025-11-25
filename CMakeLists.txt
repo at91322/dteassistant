@@ -18,6 +18,7 @@ qt_add_executable(dte
     diplomadates.h diplomadates.cpp diplomadates.ui
     app.rc
     autotab.h
+    enterkeyhandler.h
 
 )
 

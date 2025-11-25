@@ -1,6 +1,7 @@
 #include "articulator.h"
 #include "ui_articulator.h"
 #include "autotab.h"
+#include "enterkeyhandler.h"
 
 Articulator::Articulator(QWidget *parent)
     : QMainWindow(parent)
@@ -11,6 +12,9 @@ Articulator::Articulator(QWidget *parent)
     // Setup auto-tab
     setupAutoTab(ui->lineEdit_StartRow, 2);
     setupAutoTab(ui->lineEdit_EndRow, 2);
+
+    // Setup enter/return handling for all buttons
+    setupEnterKeyForButtons(this);
 }
 
 Articulator::~Articulator()

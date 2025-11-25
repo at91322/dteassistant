@@ -1,5 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include <QShortcut>
+#include "enterkeyhandler.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -12,6 +14,9 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
     this->setWindowIcon(QIcon("logo.ico"));
+
+    // Setup enter/return handling for all buttons
+    setupEnterKeyForButtons(this);
 }
 
 MainWindow::~MainWindow()

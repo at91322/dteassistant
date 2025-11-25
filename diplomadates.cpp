@@ -1,6 +1,7 @@
 #include "diplomadates.h"
 #include "ui_diplomadates.h"
 #include "autotab.h"
+#include "enterkeyhandler.h"
 
 DiplomaDates::DiplomaDates(QWidget *parent)
     : QMainWindow(parent)
@@ -11,6 +12,9 @@ DiplomaDates::DiplomaDates(QWidget *parent)
     // Setup auto-tab
     setupAutoTab(ui->lineEdit_StartRow, 2);
     setupAutoTab(ui->lineEdit_EndRow, 2);
+
+    // Setup enter/return handling for all buttons
+    setupEnterKeyForButtons(this);
 }
 
 DiplomaDates::~DiplomaDates()

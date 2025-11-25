@@ -1,6 +1,7 @@
 #include "termbuilder.h"
 #include "ui_termbuilder.h"
 #include "autotab.h"
+#include "enterkeyhandler.h"
 
 TermBuilder::TermBuilder(QWidget *parent) :
     QMainWindow(parent),
@@ -13,6 +14,9 @@ TermBuilder::TermBuilder(QWidget *parent) :
     setupAutoTab(ui->lineEdit_EndRow, 2);
     setupAutoTab(ui->lineEdit_FICE, 6);
     setupAutoTab(ui->lineEdit_InstNum, 2);
+
+    // Setup enter/return handling for all buttons
+    setupEnterKeyForButtons(this);
 }
 
 TermBuilder::~TermBuilder()

@@ -158,12 +158,12 @@
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
  <tabstops>
-  <tabstop>pushButtonHome</tabstop>
   <tabstop>dateEdit_OrderDate</tabstop>
   <tabstop>dateEdit_MailDate</tabstop>
   <tabstop>lineEdit_StartRow</tabstop>
   <tabstop>lineEdit_EndRow</tabstop>
   <tabstop>pushButtonGo</tabstop>
+  <tabstop>pushButtonHome</tabstop>
  </tabstops>
  <resources/>
  <connections/>
