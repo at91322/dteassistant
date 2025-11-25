@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>ProgramChanger</class>
+ <widget class="QMainWindow" name="ProgramChanger">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>500</width>
+    <height>360</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>500</width>
+    <height>360</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>500</width>
+    <height>360</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>Navigate360 - Manage Cases | DTE Assistant | LCC</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QGroupBox" name="groupBox_StandardPOS">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>10</y>
+      <width>211</width>
+      <height>251</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>Standard Program Changes</string>
+    </property>
+    <widget class="QPushButton" name="pushButton_StandardSingleToSingle">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>30</y>
+       <width>191</width>
+       <height>24</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Single to Single</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton_StandardSingleToStacked">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>60</y>
+       <width>191</width>
+       <height>24</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Single to Stacked</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton_StandardStackedToSingle">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>90</y>
+       <width>191</width>
+       <height>24</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Stacked to Single</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton_StandardStackedToStacked">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>120</y>
+       <width>191</width>
+       <height>24</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Stacked to Stacked</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton_StandardRemove">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>150</y>
+       <width>191</width>
+       <height>24</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Removing Only</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton_StandardAdd">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>180</y>
+       <width>191</width>
+       <height>24</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Adding Only</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton_StandardUpdate">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>210</y>
+       <width>191</width>
+       <height>24</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Updating Only</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QGroupBox" name="groupBox_UrgentPOS">
+    <property name="geometry">
+     <rect>
+      <x>260</x>
+      <y>10</y>
+      <width>211</width>
+      <height>251</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>URGENT Program Changes</string>
+    </property>
+    <widget class="QPushButton" name="pushButton_UrgentAdd">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>180</y>
+       <width>191</width>
+       <height>24</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Adding Only</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton_UrgentStackedToStacked">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>120</y>
+       <width>191</width>
+       <height>24</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Stacked to Stacked</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton_UrgentRemove">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>150</y>
+       <width>191</width>
+       <height>24</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Removing Only</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton_UrgentStackedToSingle">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>90</y>
+       <width>191</width>
+       <height>24</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Stacked to Single</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton_UrgentSingleToSingle">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>30</y>
+       <width>191</width>
+       <height>24</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Single to Single</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton_UrgentSingleToStacked">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>60</y>
+       <width>191</width>
+       <height>24</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Single to Stacked</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton_UrgentUpdate">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>210</y>
+       <width>191</width>
+       <height>24</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Updating Only</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QPushButton" name="pushButtonHome">
+    <property name="geometry">
+     <rect>
+      <x>200</x>
+      <y>270</y>
+      <width>91</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Return Home</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>500</width>
+     <height>21</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <tabstops>
+  <tabstop>pushButtonHome</tabstop>
+  <tabstop>pushButton_StandardSingleToSingle</tabstop>
+  <tabstop>pushButton_StandardSingleToStacked</tabstop>
+  <tabstop>pushButton_StandardStackedToSingle</tabstop>
+  <tabstop>pushButton_StandardStackedToStacked</tabstop>
+  <tabstop>pushButton_StandardRemove</tabstop>
+  <tabstop>pushButton_StandardAdd</tabstop>
+  <tabstop>pushButton_StandardUpdate</tabstop>
+  <tabstop>pushButton_UrgentSingleToSingle</tabstop>
+  <tabstop>pushButton_UrgentSingleToStacked</tabstop>
+  <tabstop>pushButton_UrgentStackedToSingle</tabstop>
+  <tabstop>pushButton_UrgentStackedToStacked</tabstop>
+  <tabstop>pushButton_UrgentRemove</tabstop>
+  <tabstop>pushButton_UrgentAdd</tabstop>
+  <tabstop>pushButton_UrgentUpdate</tabstop>
+ </tabstops>
+ <resources/>
+ <connections/>
+</ui>

@@ -1,0 +1,46 @@
+# Build directories and files
+build*/
+*.o
+*.obj
+*.a
+*.lib
+*.so
+*.dll
+*.exe
+*.qm
+*.qrc
+*.moc
+moc_*.cpp
+moc_*.h
+ui_*.h
+qrc_*.cpp
+Makefile*
+CMakeCache.txt
+CMakeFiles/
+
+# User-specific files
+*.user
+*.pro.user
+*.pri.user
+*.filters.user
+
+# IDE and editor specific files
+.DS_Store
+Thumbs.db
+desktop.ini
+*~
+*.bak
+*.log
+*.swp
+.qtc_clangd/
+
+# Debugging and profiling files
+*.core
+*.dmp
+*.pdb
+*.ilk
+*.suo
+
+# Other generated files
+debug/
+release/
