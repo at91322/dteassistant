@@ -2,6 +2,7 @@
 #include "ui_mainwindow.h"
 #include "enterkeyhandler.h"
 #include "documentationhelper.h"
+#include "keyboardautomation.h"
 
 #include <QDir>
 #include <QSettings>
@@ -231,9 +232,21 @@ void MainWindow::on_pushButton_GrabCases_clicked()
 
     QString lastName = formatLastName(username);
 
-    // TODO: Next step will be implementing the keyboard automation
+    // Give user time to switch to the browser window
     QMessageBox::information(this, "Case Grabber",
-                             QString("Ready to grab cases for: %1").arg(lastName));
+                             QString("Click OK, then switch to the Navigate360 window.\n\nThe automation will start in 2 seconds for: %1").arg(lastName));
+
+    // Wait for user to switch windows
+    KeyboardAutomation::wait(2000);
+
+    // Mimic dte.ahk behavior
+    KeyboardAutomation::sendTab(2, 200);
+    KeyboardAutomation::sendText(lastName, 200);
+    KeyboardAutomation::wait(750);
+    KeyboardAutomation::sendTab(10, 200);
+    KeyboardAutomation::sendEnter(500);
+    KeyboardAutomation::sendTab(5, 200);
+    KeyboardAutomation::sendEnter(1000);
 }
 
 void MainWindow::on_pushButton_CaseComments_clicked()
