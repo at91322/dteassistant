@@ -28,12 +28,12 @@ MainWindow::MainWindow(QWidget *parent)
     // Create status label for Excel/Spreadsheet tool
     excelStatusLabel = new QLabel(this);
     excelStatusLabel->setStyleSheet("QLabel { padding: 2px 5px; }");
-    ui->statusbar->addPermanentWidget(excelStatusLabel);
+    ui->statusbar->addWidget(excelStatusLabel);
 
     // Create status label for Chrome/Browser
     chromeStatusLabel = new QLabel(this);
     chromeStatusLabel ->setStyleSheet("QLabel { padding 2px 5px; }");
-    ui->statusbar->addPermanentWidget(chromeStatusLabel);
+    ui->statusbar->addWidget(chromeStatusLabel);
 
     // Create timer to check application(s) status periodically
     appCheckTimer = new QTimer(this);
