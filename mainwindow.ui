@@ -192,6 +192,20 @@
      <height>21</height>
     </rect>
    </property>
+   <widget class="QMenu" name="menuUser">
+    <property name="title">
+     <string>User</string>
+    </property>
+    <addaction name="actionChange_Username"/>
+   </widget>
+   <widget class="QMenu" name="menuTerm">
+    <property name="title">
+     <string>Term</string>
+    </property>
+    <addaction name="actionChange_Current_Term"/>
+   </widget>
+   <addaction name="menuUser"/>
+   <addaction name="menuTerm"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
   <action name="actionView_User_Configurations">
@@ -252,6 +266,16 @@
   <action name="actionCurrent_Lane_Catalog">
    <property name="text">
     <string>Current Lane Catalog</string>
+   </property>
+  </action>
+  <action name="actionChange_Username">
+   <property name="text">
+    <string>Change Username</string>
+   </property>
+  </action>
+  <action name="actionChange_Current_Term">
+   <property name="text">
+    <string>Change Current Term</string>
    </property>
   </action>
  </widget>
