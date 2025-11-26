@@ -57,5 +57,8 @@ private:
 
     QString getUsernameFromConfig();
     QString formatLastName(const QString &username);
+
+    QLabel *usernameLabel;
+    QLabel *currentTermLabel;
 };
 #endif // MAINWINDOW_H

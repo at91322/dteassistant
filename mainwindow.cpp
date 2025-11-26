@@ -5,6 +5,7 @@
 #include "keyboardautomation.h"
 
 #include <QDir>
+#include <QFrame>
 #include <QSettings>
 
 #ifdef _WIN32
@@ -23,9 +24,13 @@ MainWindow::MainWindow(QWidget *parent)
     , appCheckTimer(nullptr)
     , excelStatusLabel(nullptr)
     , chromeStatusLabel(nullptr)
+    , usernameLabel(nullptr)
+    , currentTermLabel(nullptr)
 {
     ui->setupUi(this);
     this->setWindowIcon(QIcon("logo.ico"));
+
+    ui->statusbar->setStyleSheet("QStatusBar::item { border: none; }");
 
     // Setup enter/return handling for all buttons
     setupEnterKeyForButtons(this);
@@ -39,6 +44,23 @@ MainWindow::MainWindow(QWidget *parent)
     chromeStatusLabel = new QLabel(this);
     chromeStatusLabel ->setStyleSheet("QLabel { padding 2px 5px; }");
     ui->statusbar->addWidget(chromeStatusLabel);
+
+    // Create status label for username
+    QString username = getUsernameFromConfig();
+    usernameLabel = new QLabel(this);
+    usernameLabel->setText(QString("User: %1").arg(username.isEmpty() ? "Not set" : username));
+    usernameLabel->setStyleSheet("QLabel { padding: 2px 5px; }");
+    ui->statusbar->addPermanentWidget(usernameLabel);
+
+    // Create status label for currentTerm
+    QString configPath = QCoreApplication::applicationDirPath() + "/config.ini";
+    QSettings settings(configPath, QSettings::IniFormat);
+    QString currentTerm = settings.value("TermContext/CurrentTerm", "Not set").toString();
+
+    currentTermLabel = new QLabel(this);
+    currentTermLabel->setText(QString("Term: %1").arg(currentTerm));
+    currentTermLabel->setStyleSheet("QLabel { padding: 2px 5px; }");
+    ui->statusbar->addPermanentWidget(currentTermLabel);
 
     // Create timer to check application(s) status periodically
     appCheckTimer = new QTimer(this);
