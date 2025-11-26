@@ -8,6 +8,10 @@ ProgramChanger::ProgramChanger(QWidget *parent)
 {
     ui->setupUi(this);
 
+    // Setup status bar
+    statusBarManager = new StatusBarManager(ui->statusbar, this);
+    statusBarManager->startMonitoring();
+
     // Setup enter/return handling for all buttons
     setupEnterKeyForButtons(this);
 }

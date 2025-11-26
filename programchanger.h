@@ -1,6 +1,8 @@
 #ifndef PROGRAMCHANGER_H
 #define PROGRAMCHANGER_H
 
+#include "statusbarmanager.h"
+
 #include <QMainWindow>
 
 namespace Ui {
@@ -20,6 +22,8 @@ private slots:
 
 private:
     Ui::ProgramChanger *ui;
+
+    StatusBarManager *statusBarManager;
 };
 
 #endif // PROGRAMCHANGER_H

@@ -1,6 +1,7 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
+#include "statusbarmanager.h"
 #include "articulator.h"
 #include "termbuilder.h"
 #include "transcriptreviewer.h"
@@ -33,8 +34,6 @@ private slots:
     void on_pushButton_CaseComments_clicked();
     void on_pushButton_DiplDates_clicked();
 
-    void checkApplicationStatus();
-
     void on_pushButton_Help_ARTA_clicked();
     void on_pushButton_Help_CHNG_clicked();
     void on_pushButton_Help_SHADIPL_clicked();
@@ -42,23 +41,16 @@ private slots:
 private:
     Ui::MainWindow *ui;
 
+    QString getUsernameFromConfig();
+    QString formatLastName(const QString &username);
+
+    StatusBarManager *statusBarManager;
+
     Articulator *articulatorWindow;
     TermBuilder *termBuilderWindow;
     TranscriptReviewer *transcriptReviewerWindow;
     ProgramChanger *programChangerWindow;
     DiplomaDates *diplomaDatesWindow;
-
-    QTimer *appCheckTimer;
-    QLabel *excelStatusLabel;
-    QLabel *chromeStatusLabel;
-
-    bool isExcelRunning();
-    bool isChromeRunning();
-
-    QString getUsernameFromConfig();
-    QString formatLastName(const QString &username);
-
-    QLabel *usernameLabel;
-    QLabel *currentTermLabel;
 };
+
 #endif // MAINWINDOW_H

@@ -1,6 +1,8 @@
 #ifndef TRANSCRIPTREVIEWER_H
 #define TRANSCRIPTREVIEWER_H
 
+#include "statusbarmanager.h"
+
 #include <QMainWindow>
 
 namespace Ui {
@@ -20,6 +22,8 @@ private slots:
 
 private:
     Ui::TranscriptReviewer *ui;
+
+    StatusBarManager *statusBarManager;
 };
 
 #endif // TRANSCRIPTREVIEWER_H

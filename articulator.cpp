@@ -3,11 +3,19 @@
 #include "autotab.h"
 #include "enterkeyhandler.h"
 
+#include <QDir>
+#include <QFrame>
+#include <QSettings>
+
 Articulator::Articulator(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::Articulator)
 {
     ui->setupUi(this);
+
+    // Setup status bar
+    statusBarManager = new StatusBarManager(ui->statusbar, this);
+    statusBarManager->startMonitoring();
 
     // Setup auto-tab
     setupAutoTab(ui->lineEdit_StartRow, 2);

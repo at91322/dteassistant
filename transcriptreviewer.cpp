@@ -9,6 +9,10 @@ TranscriptReviewer::TranscriptReviewer(QWidget *parent)
 {
     ui->setupUi(this);
 
+    // Setup status bar
+    statusBarManager = new StatusBarManager(ui->statusbar, this);
+    statusBarManager->startMonitoring();
+
     // Setup auto-tab
     setupAutoTab(ui->lineEdit_StartRow, 2);
     setupAutoTab(ui->lineEdit_EndRow, 2);

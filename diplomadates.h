@@ -1,6 +1,8 @@
 #ifndef DIPLOMADATES_H
 #define DIPLOMADATES_H
 
+#include "statusbarmanager.h"
+
 #include <QMainWindow>
 
 namespace Ui {
@@ -20,6 +22,8 @@ private slots:
 
 private:
     Ui::DiplomaDates *ui;
+
+    StatusBarManager *statusBarManager;
 };
 
 #endif // DIPLOMADATES_H

@@ -1,6 +1,8 @@
 #ifndef TERMBUILDER_H
 #define TERMBUILDER_H
 
+#include "statusbarmanager.h"
+
 #include <QMainWindow>
 
 namespace Ui {
@@ -20,6 +22,8 @@ private slots:
 
 private:
     Ui::TermBuilder *ui;
+
+    StatusBarManager *statusBarManager;
 };
 
 #endif // TERMBUILDER_H

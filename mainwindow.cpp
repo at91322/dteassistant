@@ -21,11 +21,7 @@ MainWindow::MainWindow(QWidget *parent)
     , transcriptReviewerWindow(nullptr)
     , programChangerWindow(nullptr)
     , diplomaDatesWindow(nullptr)
-    , appCheckTimer(nullptr)
-    , excelStatusLabel(nullptr)
-    , chromeStatusLabel(nullptr)
-    , usernameLabel(nullptr)
-    , currentTermLabel(nullptr)
+    , statusBarManager(nullptr)
 {
     ui->setupUi(this);
     this->setWindowIcon(QIcon("logo.ico"));
@@ -35,40 +31,9 @@ MainWindow::MainWindow(QWidget *parent)
     // Setup enter/return handling for all buttons
     setupEnterKeyForButtons(this);
 
-    // Create status label for Excel/Spreadsheet tool
-    excelStatusLabel = new QLabel(this);
-    excelStatusLabel->setStyleSheet("QLabel { padding: 2px 5px; }");
-    ui->statusbar->addWidget(excelStatusLabel);
-
-    // Create status label for Chrome/Browser
-    chromeStatusLabel = new QLabel(this);
-    chromeStatusLabel ->setStyleSheet("QLabel { padding 2px 5px; }");
-    ui->statusbar->addWidget(chromeStatusLabel);
-
-    // Create status label for username
-    QString username = getUsernameFromConfig();
-    usernameLabel = new QLabel(this);
-    usernameLabel->setText(QString("User: %1").arg(username.isEmpty() ? "Not set" : username));
-    usernameLabel->setStyleSheet("QLabel { padding: 2px 5px; }");
-    ui->statusbar->addPermanentWidget(usernameLabel);
-
-    // Create status label for currentTerm
-    QString configPath = QCoreApplication::applicationDirPath() + "/config.ini";
-    QSettings settings(configPath, QSettings::IniFormat);
-    QString currentTerm = settings.value("TermContext/CurrentTerm", "Not set").toString();
-
-    currentTermLabel = new QLabel(this);
-    currentTermLabel->setText(QString("Term: %1").arg(currentTerm));
-    currentTermLabel->setStyleSheet("QLabel { padding: 2px 5px; }");
-    ui->statusbar->addPermanentWidget(currentTermLabel);
-
-    // Create timer to check application(s) status periodically
-    appCheckTimer = new QTimer(this);
-    connect(appCheckTimer, &QTimer::timeout, this, &MainWindow::checkApplicationStatus);
-    appCheckTimer->start(2000); // 2 seconds
-
-    // Initial check
-    checkApplicationStatus();
+    // Setup status bar
+    statusBarManager = new StatusBarManager(ui->statusbar, this);
+    statusBarManager->startMonitoring();
 }
 
 MainWindow::~MainWindow()
@@ -89,112 +54,6 @@ MainWindow::~MainWindow()
         delete diplomaDatesWindow;
     }
     delete ui;
-}
-
-bool MainWindow::isExcelRunning()
-{
-#ifdef _WIN32
-    HANDLE hProcessSnap;
-    PROCESSENTRY32 pe32;
-    bool found = false;
-
-    // Take snapshot of all processes in the system
-    hProcessSnap = CreateToolhelp32Snapshot(TH32CS_SNAPPROCESS, 0);
-    if (hProcessSnap == INVALID_HANDLE_VALUE) {
-        return false;
-    }
-
-    pe32.dwSize = sizeof(PROCESSENTRY32);
-
-    // Retrieve information about the first process
-    if (!Process32First(hProcessSnap, &pe32)) {
-        CloseHandle(hProcessSnap);
-        return false;
-    }
-
-    // Walk through the process list
-    do {
-        QString processName = QString::fromWCharArray(pe32.szExeFile).toLower();
-        if (processName == "excel.exe") {
-            found = true;
-            break;
-        }
-    } while (Process32Next(hProcessSnap, &pe32));
-
-    CloseHandle(hProcessSnap);
-    return found;
-#else
-    // For non-Windows platforms, need to implement platform-specific checks
-    return false;
-#endif
-}
-
-bool MainWindow::isChromeRunning()
-{
-#ifdef _WIN32
-    HANDLE hProcessSnap;
-    PROCESSENTRY32 pe32;
-    bool found = false;
-
-    // Take snapshot of all processes in the system
-    hProcessSnap = CreateToolhelp32Snapshot(TH32CS_SNAPPROCESS, 0);
-    if (hProcessSnap == INVALID_HANDLE_VALUE) {
-        return false;
-    }
-
-    pe32.dwSize = sizeof(PROCESSENTRY32);
-
-    // Retrieve information about the first process
-    if (!Process32First(hProcessSnap, &pe32)) {
-        CloseHandle(hProcessSnap);
-        return false;
-    }
-
-    // Walk through the process list
-    do {
-        QString processName = QString::fromWCharArray(pe32.szExeFile).toLower();
-        if (processName == "chrome.exe") {
-            found = true;
-            break;
-        }
-    } while (Process32Next(hProcessSnap, &pe32));
-
-    CloseHandle(hProcessSnap);
-    return found;
-#else
-    // For non-Windows platforms, need to implement platform-specific checks
-    return false;
-#endif
-}
-
-void MainWindow::checkApplicationStatus()
-{
-    // Check EXCEL/spreadsheet status
-    if (isExcelRunning()) {
-        excelStatusLabel->setText("✓ Excel is running");
-        excelStatusLabel->setStyleSheet("QLabel { color: green; padding: 2px 5px; font-weight: bold; }");
-    } else {
-        excelStatusLabel->setText("✗ Excel is not running");
-        excelStatusLabel->setStyleSheet("QLabel { color: red; padding: 2px 5px; font-weight: bold; }");
-    }
-
-    // Check CHROME/browser status
-    if (isChromeRunning()) {
-        chromeStatusLabel->setText("✓ Chrome is running");
-        chromeStatusLabel->setStyleSheet("QLabel { color: green; padding: 2px 5px; font-weight: bold; }");
-    } else {
-        chromeStatusLabel->setText("✗ Chrome is not running");
-        chromeStatusLabel->setStyleSheet("QLabel { color: red; padding: 2px 5px; font-weight: bold; }");
-    }
-}
-
-QString MainWindow::getUsernameFromConfig()
-{
-    // Assuming config.ini is in the application directory
-    QString configPath = QCoreApplication::applicationDirPath() + "/config.ini";
-    QSettings settings(configPath, QSettings::IniFormat);
-
-    return settings.value("Local/User", "").toString();
 }
 
 QString MainWindow::formatLastName(const QString &username)
@@ -245,7 +104,7 @@ void MainWindow::on_pushButton_EnterCourses_clicked()
 
 void MainWindow::on_pushButton_GrabCases_clicked()
 {
-    QString username = getUsernameFromConfig();
+    QString username = statusBarManager->getUsernameFromConfig();
 
     if (username.isEmpty()) {
         QMessageBox::warning(this, "DTE Assistant", "Username not found in config.ini");

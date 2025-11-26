@@ -1,6 +1,9 @@
 #ifndef ARTICULATOR_H
 #define ARTICULATOR_H
 
+#include "statusbarmanager.h"
+
+#include <QLabel>
 #include <QMainWindow>
 
 namespace Ui {
@@ -20,6 +23,8 @@ private slots:
 
 private:
     Ui::Articulator *ui;
+
+    StatusBarManager *statusBarManager;
 };
 
 #endif // ARTICULATOR_H
