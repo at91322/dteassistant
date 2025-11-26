@@ -233,8 +233,16 @@ void MainWindow::on_pushButton_GrabCases_clicked()
     QString lastName = formatLastName(username);
 
     // Give user time to switch to the browser window
-    QMessageBox::information(this, "Case Grabber",
-                             QString("Click OK, then switch to the Navigate360 window.\n\nThe automation will start in 2 seconds for: %1").arg(lastName));
+    QMessageBox::StandardButton reply = QMessageBox::information(
+        this,
+        "Case Grabber",
+        QString("Click OK, then switch to the Navigate360 window.\n\nThe automation will start in 2 seconds for: %1").arg(lastName),
+        QMessageBox::Ok | QMessageBox::Cancel);
+
+    // Check if the user clicked OK or closed/cancelled
+    if (reply != QMessageBox::Ok) {
+        return; // User cancelled, so exit without running application
+    }
 
     // Wait for user to switch windows
     KeyboardAutomation::wait(2000);
