@@ -7,19 +7,19 @@
     <x>0</x>
     <y>0</y>
     <width>580</width>
-    <height>169</height>
+    <height>220</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
     <width>580</width>
-    <height>169</height>
+    <height>220</height>
    </size>
   </property>
   <property name="maximumSize">
    <size>
     <width>580</width>
-    <height>169</height>
+    <height>220</height>
    </size>
   </property>
   <property name="windowTitle">
@@ -32,7 +32,7 @@
       <x>20</x>
       <y>0</y>
       <width>171</width>
-      <height>131</height>
+      <height>161</height>
      </rect>
     </property>
     <property name="title">
@@ -77,6 +77,19 @@
       <string>Enter Transfer Courses</string>
      </property>
     </widget>
+    <widget class="QPushButton" name="pushButton_Help_ARTA">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>120</y>
+       <width>151</width>
+       <height>24</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Tutorial: ARTA</string>
+     </property>
+    </widget>
    </widget>
    <widget class="QGroupBox" name="groupBox_ProgramChanges">
     <property name="geometry">
@@ -84,7 +97,7 @@
       <x>200</x>
       <y>0</y>
       <width>171</width>
-      <height>131</height>
+      <height>161</height>
      </rect>
     </property>
     <property name="title">
@@ -116,6 +129,19 @@
       <string>Enter Case Comments</string>
      </property>
     </widget>
+    <widget class="QPushButton" name="pushButton_Help_CHNG">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>90</y>
+       <width>151</width>
+       <height>24</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Tutorial: CHNG</string>
+     </property>
+    </widget>
    </widget>
    <widget class="QGroupBox" name="groupBox_Diplomas">
     <property name="geometry">
@@ -123,7 +149,7 @@
       <x>380</x>
       <y>0</y>
       <width>171</width>
-      <height>131</height>
+      <height>161</height>
      </rect>
     </property>
     <property name="title">
@@ -140,6 +166,19 @@
      </property>
      <property name="text">
       <string>Enter Diploma Dates</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton_Help_SHADIPL">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>60</y>
+       <width>151</width>
+       <height>24</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Tutorial: SHADIPL</string>
      </property>
     </widget>
    </widget>

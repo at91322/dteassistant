@@ -32,7 +32,12 @@ private slots:
     void on_pushButton_GrabCases_clicked();
     void on_pushButton_CaseComments_clicked();
     void on_pushButton_DiplDates_clicked();
+
     void checkApplicationStatus();
+
+    void on_pushButton_Help_ARTA_clicked();
+    void on_pushButton_Help_CHNG_clicked();
+    void on_pushButton_Help_SHADIPL_clicked();
 
 private:
     Ui::MainWindow *ui;

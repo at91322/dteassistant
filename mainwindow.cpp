@@ -1,6 +1,9 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "enterkeyhandler.h"
+#include "documentationhelper.h"
+
+#include <QDir>
 
 #ifdef _WIN32
 #include <windows.h>
@@ -224,3 +227,28 @@ void MainWindow::on_pushButton_DiplDates_clicked()
     this->hide();
     diplomaDatesWindow->show();
 }
+
+void MainWindow::on_pushButton_Help_ARTA_clicked()
+{
+    QString docsPath = DocumentationHelper::getDocsPath();
+    QString docFile = QDir(docsPath).filePath("sample.md");
+    DocumentationHelper::openDocumentation(docFile, this);
+}
+
+
+void MainWindow::on_pushButton_Help_CHNG_clicked()
+{
+    QString docsPath = DocumentationHelper::getDocsPath();
+    QString docFile = QDir(docsPath).filePath("sample.md");
+    DocumentationHelper::openDocumentation(docFile, this);
+}
+
+
+void MainWindow::on_pushButton_Help_SHADIPL_clicked()
+{
+    QString docsPath = DocumentationHelper::getDocsPath();
+    QString docFile = QDir(docsPath).filePath("sample.md");
+    DocumentationHelper::openDocumentation(docFile, this);
+}
+
+
