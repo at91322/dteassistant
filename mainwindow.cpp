@@ -2,8 +2,6 @@
 #include "ui_mainwindow.h"
 #include "enterkeyhandler.h"
 
-#include <QShortcut>
-
 #ifdef _WIN32
 #include <windows.h>
 #include <tlhelp32.h>
