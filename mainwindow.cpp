@@ -1,8 +1,10 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+
+#include "windowmanager.h"
 #include "enterkeyhandler.h"
-#include "documentationhelper.h"
 #include "keyboardautomation.h"
+#include "documentationhelper.h"
 
 #include <QDir>
 #include <QFrame>
@@ -116,22 +118,16 @@ void MainWindow::on_pushButton_GrabCases_clicked()
 
     QString lastName = formatLastName(username);
 
-    // Give user time to switch to the browser window
-    QMessageBox::StandardButton reply = QMessageBox::information(
-        this,
-        "Case Grabber",
-        QString("Click OK, then switch to the Navigate360 window.\n\nThe automation will start in 2 seconds for: %1").arg(lastName),
-        QMessageBox::Ok | QMessageBox::Cancel);
-
-    // Check if the user clicked OK or closed/cancelled
-    if (reply != QMessageBox::Ok) {
-        return; // User cancelled, so exit without running application
+    // Activate Chrome/Browser
+    if (!WindowManager::activateWindow("opera.exe")) {
+        QMessageBox::warning(this, "DTE Assistant", "Chrome window not found. Please ensure Chrome is running.", QMessageBox::Ok);
+        return;
     }
 
-    // Wait for user to switch windows
-    KeyboardAutomation::wait(2000);
+    // Wait for window to activate
+    KeyboardAutomation::wait(720);
 
-    // Mimic dte.ahk behavior
+    // Grab case
     KeyboardAutomation::sendTab(2, 200);
     KeyboardAutomation::sendText(lastName, 200);
     KeyboardAutomation::wait(750);
