@@ -54,5 +54,8 @@ private:
 
     bool isExcelRunning();
     bool isChromeRunning();
+
+    QString getUsernameFromConfig();
+    QString formatLastName(const QString &username);
 };
 #endif // MAINWINDOW_H

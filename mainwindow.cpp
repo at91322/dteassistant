@@ -4,6 +4,7 @@
 #include "documentationhelper.h"
 
 #include <QDir>
+#include <QSettings>
 
 #ifdef _WIN32
 #include <windows.h>
@@ -164,6 +165,27 @@ void MainWindow::checkApplicationStatus()
     }
 }
 
+QString MainWindow::getUsernameFromConfig()
+{
+    // Assuming config.ini is in the application directory
+    QString configPath = QCoreApplication::applicationDirPath() + "/config.ini";
+    QSettings settings(configPath, QSettings::IniFormat);
+
+    return settings.value("Local/User", "").toString();
+}
+
+QString MainWindow::formatLastName(const QString &username)
+{
+    if (username.isEmpty()) {
+        return QString();
+    }
+
+    // Convert first character to uppercase, rest to lowercase
+    QString lastName = username.toUpper().left(1) + username.mid(1, username.length() - 2).toLower();
+
+    return lastName;
+}
+
 void MainWindow::on_pushButton_Articulate_clicked()
 {
     // Create the window if it does not exist
@@ -178,7 +200,6 @@ void MainWindow::on_pushButton_Articulate_clicked()
     articulatorWindow->show();
 }
 
-
 void MainWindow::on_pushButton_TermBuilder_clicked()
 {
     // Create; Hide; Show
@@ -188,7 +209,6 @@ void MainWindow::on_pushButton_TermBuilder_clicked()
     this->hide();
     termBuilderWindow->show();
 }
-
 
 void MainWindow::on_pushButton_EnterCourses_clicked()
 {
@@ -200,12 +220,21 @@ void MainWindow::on_pushButton_EnterCourses_clicked()
     transcriptReviewerWindow->show();
 }
 
-
 void MainWindow::on_pushButton_GrabCases_clicked()
 {
+    QString username = getUsernameFromConfig();
 
+    if (username.isEmpty()) {
+        QMessageBox::warning(this, "DTE Assistant", "Username not found in config.ini");
+        return;
+    }
+
+    QString lastName = formatLastName(username);
+
+    // TODO: Next step will be implementing the keyboard automation
+    QMessageBox::information(this, "Case Grabber",
+                             QString("Ready to grab cases for: %1").arg(lastName));
 }
-
 
 void MainWindow::on_pushButton_CaseComments_clicked()
 {
@@ -216,7 +245,6 @@ void MainWindow::on_pushButton_CaseComments_clicked()
     this->hide();
     programChangerWindow->show();
 }
-
 
 void MainWindow::on_pushButton_DiplDates_clicked()
 {
@@ -235,7 +263,6 @@ void MainWindow::on_pushButton_Help_ARTA_clicked()
     DocumentationHelper::openDocumentation(docFile, this);
 }
 
-
 void MainWindow::on_pushButton_Help_CHNG_clicked()
 {
     QString docsPath = DocumentationHelper::getDocsPath();
@@ -243,12 +270,10 @@ void MainWindow::on_pushButton_Help_CHNG_clicked()
     DocumentationHelper::openDocumentation(docFile, this);
 }
 
-
 void MainWindow::on_pushButton_Help_SHADIPL_clicked()
 {
     QString docsPath = DocumentationHelper::getDocsPath();
     QString docFile = QDir(docsPath).filePath("sample.md");
     DocumentationHelper::openDocumentation(docFile, this);
 }
-
 
