@@ -37,3 +37,13 @@ void DiplomaDates::on_pushButtonHome_clicked()
     }
 }
 
+void DiplomaDates::on_actionChange_Username_triggered()
+{
+    statusBarManager->updateUsername(this);
+}
+
+void DiplomaDates::on_actionChange_Current_Term_triggered()
+{
+    statusBarManager->updateCurrentTerm(this);
+}
+

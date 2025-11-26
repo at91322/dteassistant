@@ -194,80 +194,14 @@
    </property>
    <widget class="QMenu" name="menuUser">
     <property name="title">
-     <string>User</string>
+     <string>Config</string>
     </property>
     <addaction name="actionChange_Username"/>
-   </widget>
-   <widget class="QMenu" name="menuTerm">
-    <property name="title">
-     <string>Term</string>
-    </property>
     <addaction name="actionChange_Current_Term"/>
    </widget>
    <addaction name="menuUser"/>
-   <addaction name="menuTerm"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
-  <action name="actionView_User_Configurations">
-   <property name="text">
-    <string>View User Configurations</string>
-   </property>
-  </action>
-  <action name="actionEdit_User_Configurations">
-   <property name="text">
-    <string>Edit User Configurations</string>
-   </property>
-  </action>
-  <action name="actionTranscript_Review_TBD_1">
-   <property name="text">
-    <string>Transcript Review TBD 1</string>
-   </property>
-  </action>
-  <action name="actionTranscript_Review_TBD_2">
-   <property name="text">
-    <string>Transcript Review TBD 2</string>
-   </property>
-  </action>
-  <action name="actionProgram_Change_TBD_1">
-   <property name="text">
-    <string>Program Change TBD 1</string>
-   </property>
-  </action>
-  <action name="actionProgram_Change_TBD_2">
-   <property name="text">
-    <string>Program Change TBD 2</string>
-   </property>
-  </action>
-  <action name="actionDiploma_TBD_1">
-   <property name="text">
-    <string>Diploma TBD 1</string>
-   </property>
-  </action>
-  <action name="actionDiploma_TBD_2">
-   <property name="text">
-    <string>Diploma TBD 2</string>
-   </property>
-  </action>
-  <action name="actionTBD_1">
-   <property name="text">
-    <string>TBD 1</string>
-   </property>
-  </action>
-  <action name="actionTBD_2">
-   <property name="text">
-    <string>TBD 2</string>
-   </property>
-  </action>
-  <action name="actionDTE_Manual">
-   <property name="text">
-    <string>DTE Manual</string>
-   </property>
-  </action>
-  <action name="actionCurrent_Lane_Catalog">
-   <property name="text">
-    <string>Current Lane Catalog</string>
-   </property>
-  </action>
   <action name="actionChange_Username">
    <property name="text">
     <string>Change Username</string>

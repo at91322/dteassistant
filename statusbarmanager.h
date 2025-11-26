@@ -23,6 +23,9 @@ public:
     QString getUsernameFromConfig();
     QString getCurrentTermFromConfig();
 
+    void updateUsername(QWidget *parentWidget);
+    void updateCurrentTerm(QWidget *parentWidget);
+
 private slots:
     void checkApplicationStatus();
 

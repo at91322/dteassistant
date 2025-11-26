@@ -38,6 +38,9 @@ private slots:
     void on_pushButton_Help_CHNG_clicked();
     void on_pushButton_Help_SHADIPL_clicked();
 
+    void on_actionChange_Username_triggered();
+    void on_actionChange_Current_Term_triggered();
+
 private:
     Ui::MainWindow *ui;
 

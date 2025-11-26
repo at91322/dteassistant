@@ -179,3 +179,13 @@ void MainWindow::on_pushButton_Help_SHADIPL_clicked()
     DocumentationHelper::openDocumentation(docFile, this);
 }
 
+void MainWindow::on_actionChange_Username_triggered()
+{
+    statusBarManager->updateUsername(this);
+}
+
+void MainWindow::on_actionChange_Current_Term_triggered()
+{
+    statusBarManager->updateCurrentTerm(this);
+}
+

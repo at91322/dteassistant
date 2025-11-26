@@ -41,3 +41,13 @@ void Articulator::on_pushButtonHome_clicked()
     }
 }
 
+void Articulator::on_actionChange_Username_triggered()
+{
+    statusBarManager->updateUsername(this);
+}
+
+void Articulator::on_actionChange_Current_Term_triggered()
+{
+    statusBarManager->updateCurrentTerm(this);
+}
+

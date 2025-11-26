@@ -131,8 +131,26 @@
      <height>21</height>
     </rect>
    </property>
+   <widget class="QMenu" name="menuConfig">
+    <property name="title">
+     <string>Config</string>
+    </property>
+    <addaction name="actionChange_Username"/>
+    <addaction name="actionChange_Current_Term"/>
+   </widget>
+   <addaction name="menuConfig"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionChange_Username">
+   <property name="text">
+    <string>Change Username</string>
+   </property>
+  </action>
+  <action name="actionChange_Current_Term">
+   <property name="text">
+    <string>Change Current Term</string>
+   </property>
+  </action>
  </widget>
  <tabstops>
   <tabstop>lineEdit_FICE</tabstop>

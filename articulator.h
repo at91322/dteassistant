@@ -21,6 +21,9 @@ public:
 private slots:
     void on_pushButtonHome_clicked();
 
+    void on_actionChange_Username_triggered();
+    void on_actionChange_Current_Term_triggered();
+
 private:
     Ui::Articulator *ui;
 

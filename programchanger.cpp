@@ -32,3 +32,13 @@ void ProgramChanger::on_pushButtonHome_clicked()
     }
 }
 
+void ProgramChanger::on_actionChange_Username_triggered()
+{
+    statusBarManager->updateUsername(this);
+}
+
+void ProgramChanger::on_actionChange_Current_Term_triggered()
+{
+    statusBarManager->updateCurrentTerm(this);
+}
+
