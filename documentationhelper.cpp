@@ -23,8 +23,9 @@ bool DocumentationHelper::openDocumentation(const QString &mdFilePath, QWidget *
 
     if (!success) {
         QMessageBox::warning(parent, "Cannot Open Documentation",
-                             "Unable to open the documentation file.\n",
-                             "Please ensure you have a default application set for .md (markdown) files.");
+                             "Unable to open the documentation file.\n"
+                             "Please ensure you have a default application set for .md (markdown) files.",
+                             QMessageBox::Ok);
         return false;
     }
 
