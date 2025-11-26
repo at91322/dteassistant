@@ -18,7 +18,7 @@ public:
 protected:
     bool eventFilter(QObject *obj, QEvent *event) override
     {
-        if (event->type() ==QEvent::KeyPress) {
+        if (event->type() == QEvent::KeyPress) {
             QKeyEvent *keyEvent = static_cast<QKeyEvent*>(event);
             QLineEdit *lineEdit = qobject_cast<QLineEdit*>(obj);
 
