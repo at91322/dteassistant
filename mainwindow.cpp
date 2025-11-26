@@ -119,7 +119,7 @@ void MainWindow::on_pushButton_GrabCases_clicked()
     QString lastName = formatLastName(username);
 
     // Activate Chrome/Browser
-    if (!WindowManager::activateWindow("opera.exe")) {
+    if (!WindowManager::activateWindow("chrome.exe")) {
         QMessageBox::warning(this, "DTE Assistant", "Chrome window not found. Please ensure Chrome is running.", QMessageBox::Ok);
         return;
     }
