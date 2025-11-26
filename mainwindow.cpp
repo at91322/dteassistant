@@ -53,16 +53,16 @@ MainWindow::~MainWindow()
         delete articulatorWindow;
     }
     if (termBuilderWindow != nullptr) {
-        delete articulatorWindow;
+        delete termBuilderWindow;
     }
     if (transcriptReviewerWindow != nullptr) {
-        delete articulatorWindow;
+        delete transcriptReviewerWindow;
     }
     if (programChangerWindow != nullptr) {
-        delete articulatorWindow;
+        delete programChangerWindow;
     }
     if (diplomaDatesWindow != nullptr) {
-        delete articulatorWindow;
+        delete diplomaDatesWindow;
     }
     delete ui;
 }
