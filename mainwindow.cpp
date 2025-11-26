@@ -34,6 +34,9 @@ MainWindow::MainWindow(QWidget *parent)
     // Setup status bar
     statusBarManager = new StatusBarManager(ui->statusbar, this);
     statusBarManager->startMonitoring();
+
+    // Make the Always On Top action checkable
+    ui->actionAlways_On_Top->setCheckable(true);
 }
 
 MainWindow::~MainWindow()
@@ -187,5 +190,10 @@ void MainWindow::on_actionChange_Username_triggered()
 void MainWindow::on_actionChange_Current_Term_triggered()
 {
     statusBarManager->updateCurrentTerm(this);
+}
+
+void MainWindow::on_actionAlways_On_Top_triggered(bool checked)
+{
+    statusBarManager->toggleAlwaysOnTop(this, checked);
 }
 

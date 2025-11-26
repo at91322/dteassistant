@@ -268,3 +268,20 @@ void StatusBarManager::updateCurrentTerm(QWidget *parentWidget)
     }
 }
 
+void StatusBarManager::toggleAlwaysOnTop(QWidget *window, bool checked)
+{
+    if (!window) return;
+
+    Qt::WindowFlags flags = window->windowFlags();
+
+    if (checked) {
+        // Set window to stay on top
+        window->setWindowFlags(flags | Qt::WindowStaysOnTopHint);
+    } else {
+        // Remove stay on top flag
+        window->setWindowFlags(flags & ~Qt::WindowStaysOnTopHint);
+    }
+
+    window->show();
+}
+

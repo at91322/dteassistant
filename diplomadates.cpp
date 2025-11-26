@@ -19,6 +19,9 @@ DiplomaDates::DiplomaDates(QWidget *parent)
 
     // Setup enter/return handling for all buttons
     setupEnterKeyForButtons(this);
+
+    // Make the Always On Top action checkable
+    ui->actionAlways_On_Top->setCheckable(true);
 }
 
 DiplomaDates::~DiplomaDates()
@@ -45,5 +48,10 @@ void DiplomaDates::on_actionChange_Username_triggered()
 void DiplomaDates::on_actionChange_Current_Term_triggered()
 {
     statusBarManager->updateCurrentTerm(this);
+}
+
+void DiplomaDates::on_actionAlways_On_Top_triggered(bool checked)
+{
+    statusBarManager->toggleAlwaysOnTop(this, checked);
 }
 

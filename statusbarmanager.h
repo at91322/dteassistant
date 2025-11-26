@@ -23,8 +23,12 @@ public:
     QString getUsernameFromConfig();
     QString getCurrentTermFromConfig();
 
+    // Config updates
     void updateUsername(QWidget *parentWidget);
     void updateCurrentTerm(QWidget *parentWidget);
+
+    // Window management
+    void toggleAlwaysOnTop(QWidget *window, bool checked);
 
 private slots:
     void checkApplicationStatus();

@@ -21,6 +21,9 @@ TermBuilder::TermBuilder(QWidget *parent) :
 
     // Setup enter/return handling for all buttons
     setupEnterKeyForButtons(this);
+
+    // Make the Always On Top action checkable
+    ui->actionAlways_On_Top->setCheckable(true);
 }
 
 TermBuilder::~TermBuilder()
@@ -49,3 +52,7 @@ void TermBuilder::on_actionChange_Current_Term_triggered()
     statusBarManager->updateCurrentTerm(this);
 }
 
+void TermBuilder::on_actionAlways_On_Top_triggered(bool checked)
+{
+    statusBarManager->toggleAlwaysOnTop(this, checked);
+}

@@ -14,6 +14,9 @@ ProgramChanger::ProgramChanger(QWidget *parent)
 
     // Setup enter/return handling for all buttons
     setupEnterKeyForButtons(this);
+
+    // Make the Always On Top action checkable
+    ui->actionAlways_On_Top->setCheckable(true);
 }
 
 ProgramChanger::~ProgramChanger()
@@ -42,3 +45,7 @@ void ProgramChanger::on_actionChange_Current_Term_triggered()
     statusBarManager->updateCurrentTerm(this);
 }
 
+void ProgramChanger::on_actionAlways_On_Top_triggered(bool checked)
+{
+    statusBarManager->toggleAlwaysOnTop(this, checked);
+}

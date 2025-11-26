@@ -264,7 +264,14 @@
     <addaction name="actionChange_Username"/>
     <addaction name="actionChange_Current_Term"/>
    </widget>
+   <widget class="QMenu" name="menuWindow">
+    <property name="title">
+     <string>Window</string>
+    </property>
+    <addaction name="actionAlways_On_Top"/>
+   </widget>
    <addaction name="menuConfig"/>
+   <addaction name="menuWindow"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
   <action name="actionChange_Username">
@@ -275,6 +282,14 @@
   <action name="actionChange_Current_Term">
    <property name="text">
     <string>Change Current Term</string>
+   </property>
+  </action>
+  <action name="actionAlways_On_Top">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Always On Top?</string>
    </property>
   </action>
  </widget>
