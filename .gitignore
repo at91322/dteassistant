@@ -17,7 +17,7 @@ qrc_*.cpp
 Makefile*
 CMakeCache.txt
 CMakeFiles/
-CMakeLists*
+CMakeLists.txt
 
 # User-specific files
 *.user
