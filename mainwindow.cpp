@@ -1,7 +1,8 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-#include <QShortcut>
 #include "enterkeyhandler.h"
+
+#include <QShortcut>
 
 #ifdef _WIN32
 #include <windows.h>
@@ -16,6 +17,9 @@ MainWindow::MainWindow(QWidget *parent)
     , transcriptReviewerWindow(nullptr)
     , programChangerWindow(nullptr)
     , diplomaDatesWindow(nullptr)
+    , appCheckTimer(nullptr)
+    , excelStatusLabel(nullptr)
+    , chromeStatusLabel(nullptr)
 {
     ui->setupUi(this);
     this->setWindowIcon(QIcon("logo.ico"));
@@ -23,18 +27,23 @@ MainWindow::MainWindow(QWidget *parent)
     // Setup enter/return handling for all buttons
     setupEnterKeyForButtons(this);
 
-    // Create status label for Excel status
+    // Create status label for Excel/Spreadsheet tool
     excelStatusLabel = new QLabel(this);
     excelStatusLabel->setStyleSheet("QLabel { padding: 2px 5px; }");
     ui->statusbar->addPermanentWidget(excelStatusLabel);
 
-    // Create timer to check Excel status periodically
-    excelCheckTimer = new QTimer(this);
-    connect(excelCheckTimer, &QTimer::timeout, this, &MainWindow::checkExcelStatus);
-    excelCheckTimer->start(2000); // 2 seconds
+    // Create status label for Chrome/Browser
+    chromeStatusLabel = new QLabel(this);
+    chromeStatusLabel ->setStyleSheet("QLabel { padding 2px 5px; }");
+    ui->statusbar->addPermanentWidget(chromeStatusLabel);
+
+    // Create timer to check application(s) status periodically
+    appCheckTimer = new QTimer(this);
+    connect(appCheckTimer, &QTimer::timeout, this, &MainWindow::checkApplicationStatus);
+    appCheckTimer->start(2000); // 2 seconds
 
     // Initial check
-    checkExcelStatus();
+    checkApplicationStatus();
 }
 
 MainWindow::~MainWindow()
@@ -95,14 +104,62 @@ bool MainWindow::isExcelRunning()
 #endif
 }
 
-void MainWindow::checkExcelStatus()
+bool MainWindow::isChromeRunning()
 {
+#ifdef _WIN32
+    HANDLE hProcessSnap;
+    PROCESSENTRY32 pe32;
+    bool found = false;
+
+    // Take snapshot of all processes in the system
+    hProcessSnap = CreateToolhelp32Snapshot(TH32CS_SNAPPROCESS, 0);
+    if (hProcessSnap == INVALID_HANDLE_VALUE) {
+        return false;
+    }
+
+    pe32.dwSize = sizeof(PROCESSENTRY32);
+
+    // Retrieve information about the first process
+    if (!Process32First(hProcessSnap, &pe32)) {
+        CloseHandle(hProcessSnap);
+        return false;
+    }
+
+    // Walk through the process list
+    do {
+        QString processName = QString::fromWCharArray(pe32.szExeFile).toLower();
+        if (processName == "chrome.exe") {
+            found = true;
+            break;
+        }
+    } while (Process32Next(hProcessSnap, &pe32));
+
+    CloseHandle(hProcessSnap);
+    return found;
+#else
+    // For non-Windows platforms, need to implement platform-specific checks
+    return false;
+#endif
+}
+
+void MainWindow::checkApplicationStatus()
+{
+    // Check EXCEL/spreadsheet status
     if (isExcelRunning()) {
         excelStatusLabel->setText("✓ Excel is running");
         excelStatusLabel->setStyleSheet("QLabel { color: green; padding: 2px 5px; font-weight: bold; }");
     } else {
         excelStatusLabel->setText("✗ Excel is not running");
         excelStatusLabel->setStyleSheet("QLabel { color: red; padding: 2px 5px; font-weight: bold; }");
+    }
+
+    // Check CHROME/browser status
+    if (isChromeRunning()) {
+        chromeStatusLabel->setText("✓ Chrome is running");
+        chromeStatusLabel->setStyleSheet("QLabel { color: green; padding: 2px 5px; font-weight: bold; }");
+    } else {
+        chromeStatusLabel->setText("✗ Chrome is not running");
+        chromeStatusLabel->setStyleSheet("QLabel { color: red; padding: 2px 5px; font-weight: bold; }");
     }
 }
 

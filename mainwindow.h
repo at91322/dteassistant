@@ -1,14 +1,15 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
-#include <QMainWindow>
-#include <QTimer>
-#include <QLabel>
 #include "articulator.h"
 #include "termbuilder.h"
 #include "transcriptreviewer.h"
 #include "programchanger.h"
 #include "diplomadates.h"
+
+#include <QMainWindow>
+#include <QTimer>
+#include <QLabel>
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -31,7 +32,7 @@ private slots:
     void on_pushButton_GrabCases_clicked();
     void on_pushButton_CaseComments_clicked();
     void on_pushButton_DiplDates_clicked();
-    void checkExcelStatus();
+    void checkApplicationStatus();
 
 private:
     Ui::MainWindow *ui;
@@ -42,9 +43,11 @@ private:
     ProgramChanger *programChangerWindow;
     DiplomaDates *diplomaDatesWindow;
 
-    QTimer *excelCheckTimer;
+    QTimer *appCheckTimer;
     QLabel *excelStatusLabel;
+    QLabel *chromeStatusLabel;
 
     bool isExcelRunning();
+    bool isChromeRunning();
 };
 #endif // MAINWINDOW_H
