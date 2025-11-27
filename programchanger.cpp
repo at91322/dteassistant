@@ -2,6 +2,8 @@
 #include "ui_programchanger.h"
 #include "enterkeyhandler.h"
 
+#include <QMessageBox>
+
 ProgramChanger::ProgramChanger(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::ProgramChanger)
@@ -49,3 +51,4 @@ void ProgramChanger::on_actionAlways_On_Top_triggered(bool checked)
 {
     statusBarManager->toggleAlwaysOnTop(this, checked);
 }
+

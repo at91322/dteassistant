@@ -22,6 +22,7 @@ public:
     // Config access
     QString getUsernameFromConfig();
     QString getCurrentTermFromConfig();
+    QString getNextTermFromConfig();
 
     // Config updates
     void updateUsername(QWidget *parentWidget);

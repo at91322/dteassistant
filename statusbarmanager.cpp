@@ -183,6 +183,13 @@ QString StatusBarManager::getCurrentTermFromConfig()
     return settings.value("TermContext/CurrentTerm", "Not set").toString();
 }
 
+QString StatusBarManager::getNextTermFromConfig()
+{
+    QString configPath = QCoreApplication::applicationDirPath() + "/config.ini";
+    QSettings settings(configPath, QSettings::IniFormat);
+    return settings.value("TermContext/NextTerm", "Not set").toString();
+}
+
 void StatusBarManager::updateUsername(QWidget *parentWidget)
 {
     QString currentUsername = getUsernameFromConfig();
