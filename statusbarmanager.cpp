@@ -190,6 +190,44 @@ QString StatusBarManager::getNextTermFromConfig()
     return settings.value("TermContext/NextTerm", "Not set").toString();
 }
 
+QString StatusBarManager::getPreviousTermFromConfig()
+{
+    QString configPath = QCoreApplication::applicationDirPath() + "/config.ini";
+    QSettings settings(configPath, QSettings::IniFormat);
+    return settings.value("TermContext/PreviousTerm", "Not set").toString();
+}
+
+QString StatusBarManager::convertTermToLongFormat(const QString &termCode)
+{
+    if(termCode.length() != 6) {
+        return termCode; // Invalid format, return as is
+    }
+
+    QString year = termCode.left(4);
+    QString termPart = termCode.right(2);
+
+    QString termName;
+    int displayYear = year.toInt();
+
+    if (termPart == "10") {
+        termName = "Summer";
+        displayYear = year.toInt() - 1;
+    } else if (termPart == "20") {
+        termName = "Fall";
+        displayYear = year.toInt() - 1;
+    } else if (termPart == "30") {
+        termName = "Winter";
+        displayYear = year.toInt();
+    } else if (termPart == "40") {
+        termName = "Spring";
+        displayYear = year.toInt();
+    } else {
+        return termCode; //Unknown term code
+    }
+
+    return QString("%1 %2").arg(termName).arg(displayYear);
+}
+
 void StatusBarManager::updateUsername(QWidget *parentWidget)
 {
     QString currentUsername = getUsernameFromConfig();

@@ -23,6 +23,10 @@ public:
     QString getUsernameFromConfig();
     QString getCurrentTermFromConfig();
     QString getNextTermFromConfig();
+    QString getPreviousTermFromConfig();
+
+    // Term Conversion
+    QString convertTermToLongFormat(const QString &termCode); // "202630 -> Winter 2026"
 
     // Config updates
     void updateUsername(QWidget *parentWidget);

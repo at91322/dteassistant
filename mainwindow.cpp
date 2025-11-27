@@ -129,7 +129,7 @@ void MainWindow::on_pushButton_GrabCases_clicked()
 
     // Grab case
     KeyboardAutomation::sendTab(2, 200);
-    KeyboardAutomation::sendText(lastName, 200);
+    KeyboardAutomation::sendText(lastName, 10);
     KeyboardAutomation::wait(750);
     KeyboardAutomation::sendTab(10, 200);
     KeyboardAutomation::sendEnter(500);
