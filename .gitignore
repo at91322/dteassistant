@@ -1,47 +1,82 @@
-# Build directories and files
-build*/
+# This file is used to ignore files which are generated
+# ----------------------------------------------------------------------------
+
+*~
+*.autosave
+*.a
+*.core
+*.moc
 *.o
 *.obj
-*.a
-*.lib
+*.orig
+*.rej
 *.so
-*.dll
-*.exe
+*.so.*
+*_pch.h.cpp
+*_resource.rc
 *.qm
-*.qrc
-*.moc
+.#*
+*.*#
+core
+!core/
+tags
+.DS_Store
+.directory
+*.debug
+Makefile*
+*.prl
+*.app
 moc_*.cpp
-moc_*.h
 ui_*.h
 qrc_*.cpp
-Makefile*
-CMakeCache.txt
-CMakeFiles/
-CMakeLists.txt
-
-# User-specific files
-*.user
-*.pro.user
-*.pri.user
-*.filters.user
-
-# IDE and editor specific files
-.DS_Store
 Thumbs.db
-desktop.ini
-*~
-*.bak
-*.log
-*.swp
-.qtc_clangd/
+*.res
+*.rc
+/.qmake.cache
+/.qmake.stash
 
-# Debugging and profiling files
-*.core
-*.dmp
-*.pdb
+# qtcreator generated files
+*.pro.user*
+*.qbs.user*
+CMakeLists.txt.user*
+
+# xemacs temporary files
+*.flc
+
+# Vim temporary files
+.*.swp
+
+# Visual Studio generated files
+*.ib_pdb_index
+*.idb
 *.ilk
+*.pdb
+*.sln
 *.suo
+*.vcproj
+*vcproj.*.*.user
+*.ncb
+*.sdf
+*.opensdf
+*.vcxproj
+*vcxproj.*
 
-# Other generated files
-debug/
-release/
+# MinGW generated files
+*.Debug
+*.Release
+
+# Python byte code
+*.pyc
+
+# Binaries
+# --------
+*.dll
+*.exe
+
+# Directories with generated files
+.moc/
+.obj/
+.pch/
+.rcc/
+.uic/
+/build*/
