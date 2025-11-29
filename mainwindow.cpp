@@ -169,21 +169,21 @@ void MainWindow::on_pushButton_Help_ARTA_clicked()
 {
     QString docsPath = DocumentationHelper::getDocsPath();
     QString docFile = QDir(docsPath).filePath("sample.md");
-    DocumentationHelper::openDocumentation(docFile, this);
+    DocumentationHelper::showDocumentationViewer(docFile, this);
 }
 
 void MainWindow::on_pushButton_Help_CHNG_clicked()
 {
     QString docsPath = DocumentationHelper::getDocsPath();
     QString docFile = QDir(docsPath).filePath("sample.md");
-    DocumentationHelper::openDocumentation(docFile, this);
+    DocumentationHelper::showDocumentationViewer(docFile, this);
 }
 
 void MainWindow::on_pushButton_Help_SHADIPL_clicked()
 {
     QString docsPath = DocumentationHelper::getDocsPath();
     QString docFile = QDir(docsPath).filePath("sample.md");
-    DocumentationHelper::openDocumentation(docFile, this);
+    DocumentationHelper::showDocumentationViewer(docFile, this);
 }
 
 void MainWindow::on_actionChange_Username_triggered()
