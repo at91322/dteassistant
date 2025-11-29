@@ -38,6 +38,13 @@ QString ConfigManager::getPreviousTermFromConfig()
     return settings.value("TermContext/PreviousTerm", "Not set").toString();
 }
 
+QString ConfigManager::getBrowserFromConfig()
+{
+    QString configPath = QCoreApplication::applicationDirPath() + "/config.ini";
+    QSettings settings(configPath, QSettings::IniFormat);
+    return settings.value("Local/Browser", "chrome.exe").toString();
+}
+
 QString ConfigManager::convertTermToLongFormat(const QString &termCode)
 {
     if(termCode.length() != 6) {
@@ -67,6 +74,18 @@ QString ConfigManager::convertTermToLongFormat(const QString &termCode)
     }
 
     return QString("%1 %2").arg(termName).arg(displayYear);
+}
+
+QString ConfigManager::getBrowserDisplayName(const QString &browserExe)
+{
+    QString lower = browserExe.toLower();
+
+    if (lower == "chrome.exe") return "Google Chrome";
+    if (lower == "firefox.exe") return "Mozilla Firefox";
+    if (lower == "msedge.exe") return "Microsoft Edge";
+    if (lower == "opera.exe") return "Opera";
+
+    return browserExe; // Return as-is if unknown
 }
 
 void ConfigManager::updateUsername(QWidget *parentWidget)
@@ -153,3 +172,48 @@ void ConfigManager::updateCurrentTerm(QWidget *parentWidget)
                                      .arg(nextTerm));
     }
 }
+
+void ConfigManager::updateBrowser(QWidget *parentWidget)
+{
+    QString currentBrowser = getBrowserFromConfig();
+
+    QStringList browsers;
+    browsers << "chrome.exe" << "firefox.exe" << "msedge.exe" << "opera.exe";
+
+    QStringList displayNames;
+    for (const QString &browser : browsers) {
+        displayNames << getBrowserDisplayName(browser);
+    }
+
+    // Find current selection index
+    int currentIndex = browsers.indexOf(currentBrowser);
+    if (currentIndex == -1) currentIndex = 0;
+
+    bool ok;
+    QString selectedDisplay = QInputDialog::getItem(
+        parentWidget,
+        "Change Browser",
+        "Select your preferred web browser:",
+        displayNames,
+        currentIndex,
+        false,
+        &ok
+        );
+
+    if (ok) {
+        // Convert display name back to executable name
+        int selectedIndex = displayNames.indexOf(selectedDisplay);
+        QString newBrowser = browsers[selectedIndex];
+
+        // Save to config.ini
+        QString configPath = QCoreApplication::applicationDirPath() + "/config.ini";
+        QSettings settings(configPath, QSettings::IniFormat);
+        settings.setValue("Local/Browser", newBrowser);
+        settings.sync();
+
+        QMessageBox::information(parentWidget, "Success",
+                                 QString("Browser updated to: %1\n\nRestart the application for changes to take effect.")
+                                     .arg(selectedDisplay));
+    }
+}
+

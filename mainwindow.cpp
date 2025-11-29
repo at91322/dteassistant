@@ -119,9 +119,16 @@ void MainWindow::on_pushButton_GrabCases_clicked()
 
     QString lastName = formatLastName(username);
 
-    // Activate Chrome/Browser
-    if (!WindowManager::activateWindow("chrome.exe")) {
-        QMessageBox::warning(this, "DTE Assistant", "Chrome window not found. Please ensure Chrome is running.", QMessageBox::Ok);
+    QString browserExe = ConfigManager::getBrowserFromConfig();
+    QString browserDisplayName = ConfigManager::getBrowserDisplayName(browserExe);
+
+    // Activate Browser
+    if (!WindowManager::activateWindow(browserExe)) {
+        QMessageBox::warning(this, "DTE Assistant",
+                             QString("%1 window not found. Please ensure %2 is running.")
+                                 .arg(browserDisplayName)
+                                 .arg(browserDisplayName),
+                             QMessageBox::Ok);
         return;
     }
 
@@ -187,6 +194,11 @@ void MainWindow::on_actionChange_Username_triggered()
 void MainWindow::on_actionChange_Current_Term_triggered()
 {
     statusBarManager->updateCurrentTerm(this);
+}
+
+void MainWindow::on_actionactionChange_Default_Web_Browser_triggered()
+{
+    ConfigManager::updateBrowser(this);
 }
 
 void MainWindow::on_actionAlways_On_Top_triggered(bool checked)

@@ -25,8 +25,10 @@ public:
     // Config wrappers for convenience (delegate to ConfigManager)
     void updateUsername(QWidget *parentWidget);
     void updateCurrentTerm(QWidget *parentWidget);
+    void updateBrowser(QWidget *parentWidget);
     QString getCurrentTermFromConfig();
     QString getNextTermFromConfig();
+    QString getBrowserFromConfig();
     QString convertTermToLongFormat(const QString &termCode);
 
 private slots:
@@ -38,13 +40,13 @@ private:
 
     // Status labels
     QLabel *m_excelStatusLabel;
-    QLabel *m_chromeStatusLabel;
+    QLabel *m_browserStatusLabel;
     QLabel *m_usernameLabel;
     QLabel *m_currentTermLabel;
 
     // Helper methods
     bool isExcelRunning();
-    bool isChromeRunning();
+    bool isBrowserRunning();
 
     void setupStatusBar();
 };

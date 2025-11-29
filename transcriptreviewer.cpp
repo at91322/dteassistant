@@ -1,5 +1,7 @@
 #include "transcriptreviewer.h"
 #include "ui_transcriptreviewer.h"
+
+#include "configmanager.h"
 #include "autotab.h"
 #include "enterkeyhandler.h"
 
@@ -49,6 +51,11 @@ void TranscriptReviewer::on_actionChange_Username_triggered()
 void TranscriptReviewer::on_actionChange_Current_Term_triggered()
 {
     statusBarManager->updateCurrentTerm(this);
+}
+
+void TranscriptReviewer::on_actionactionChange_Default_Web_Browser_triggered()
+{
+    ConfigManager::updateBrowser(this);
 }
 
 void TranscriptReviewer::on_actionAlways_On_Top_triggered(bool checked)

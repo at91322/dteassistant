@@ -3,6 +3,7 @@
 
 #include "keyboardautomation.h"
 #include "windowmanager.h"
+#include "configmanager.h"
 #include "enterkeyhandler.h"
 
 #include <QMessageBox>
@@ -50,6 +51,11 @@ void ProgramChanger::on_actionChange_Current_Term_triggered()
     statusBarManager->updateCurrentTerm(this);
 }
 
+void ProgramChanger::on_actionactionChange_Default_Web_Browser_triggered()
+{
+    ConfigManager::updateBrowser(this);
+}
+
 void ProgramChanger::on_actionAlways_On_Top_triggered(bool checked)
 {
     statusBarManager->toggleAlwaysOnTop(this, checked);
@@ -66,10 +72,15 @@ void ProgramChanger::on_pushButton_StandardSingleToSingle_clicked()
     }
 
     QString nextTermLongForm = statusBarManager->convertTermToLongFormat(nextTerm);
+    QString browserExe = ConfigManager::getBrowserFromConfig();
+    QString browserDisplayName = ConfigManager::getBrowserDisplayName(browserExe);
 
-    // Activate Chrome/Browser
-    if (!WindowManager::activateWindow("chrome.exe")) {
-        QMessageBox::warning(this, "DTE Assistant", "Chrome window not found. Please ensure Chrome is running.", QMessageBox::Ok);
+    // Activate Browser
+    if (!WindowManager::activateWindow(browserExe)) {
+        QMessageBox::warning(this, "DTE Assistant",
+                             QString("%1 window not found. Please ensure %1 is running.")
+                                 .arg(browserDisplayName),
+                             QMessageBox::Ok);
         return;
     }
 
@@ -90,10 +101,15 @@ void ProgramChanger::on_pushButton_StandardSingleToStacked_clicked()
     }
 
     QString nextTermLongForm = statusBarManager->convertTermToLongFormat(nextTerm);
+    QString browserExe = ConfigManager::getBrowserFromConfig();
+    QString browserDisplayName = ConfigManager::getBrowserDisplayName(browserExe);
 
-    // Activate Chrome/Browser
-    if (!WindowManager::activateWindow("chrome.exe")) {
-        QMessageBox::warning(this, "DTE Assistant", "Chrome window not found. Please ensure Chrome is running.", QMessageBox::Ok);
+    // Activate Browser
+    if (!WindowManager::activateWindow(browserExe)) {
+        QMessageBox::warning(this, "DTE Assistant",
+                             QString("%1 window not found. Please ensure %1 is running.")
+                                 .arg(browserDisplayName),
+                             QMessageBox::Ok);
         return;
     }
 
@@ -114,10 +130,15 @@ void ProgramChanger::on_pushButton_StandardStackedToSingle_clicked()
     }
 
     QString nextTermLongForm = statusBarManager->convertTermToLongFormat(nextTerm);
+    QString browserExe = ConfigManager::getBrowserFromConfig();
+    QString browserDisplayName = ConfigManager::getBrowserDisplayName(browserExe);
 
-    // Activate Chrome/Browser
-    if (!WindowManager::activateWindow("chrome.exe")) {
-        QMessageBox::warning(this, "DTE Assistant", "Chrome window not found. Please ensure Chrome is running.", QMessageBox::Ok);
+    // Activate Browser
+    if (!WindowManager::activateWindow(browserExe)) {
+        QMessageBox::warning(this, "DTE Assistant",
+                             QString("%1 window not found. Please ensure %1 is running.")
+                                 .arg(browserDisplayName),
+                             QMessageBox::Ok);
         return;
     }
 
@@ -138,10 +159,15 @@ void ProgramChanger::on_pushButton_StandardStackedToStacked_clicked()
     }
 
     QString nextTermLongForm = statusBarManager->convertTermToLongFormat(nextTerm);
+    QString browserExe = ConfigManager::getBrowserFromConfig();
+    QString browserDisplayName = ConfigManager::getBrowserDisplayName(browserExe);
 
-    // Activate Chrome/Browser
-    if (!WindowManager::activateWindow("chrome.exe")) {
-        QMessageBox::warning(this, "DTE Assistant", "Chrome window not found. Please ensure Chrome is running.", QMessageBox::Ok);
+    // Activate Browser
+    if (!WindowManager::activateWindow(browserExe)) {
+        QMessageBox::warning(this, "DTE Assistant",
+                             QString("%1 window not found. Please ensure %1 is running.")
+                                 .arg(browserDisplayName),
+                             QMessageBox::Ok);
         return;
     }
 
@@ -163,10 +189,15 @@ void ProgramChanger::on_pushButton_StandardRemove_clicked()
     }
 
     QString nextTermLongForm = statusBarManager->convertTermToLongFormat(nextTerm);
+    QString browserExe = ConfigManager::getBrowserFromConfig();
+    QString browserDisplayName = ConfigManager::getBrowserDisplayName(browserExe);
 
-    // Activate Chrome/Browser
-    if (!WindowManager::activateWindow("chrome.exe")) {
-        QMessageBox::warning(this, "DTE Assistant", "Chrome window not found. Please ensure Chrome is running.", QMessageBox::Ok);
+    // Activate Browser
+    if (!WindowManager::activateWindow(browserExe)) {
+        QMessageBox::warning(this, "DTE Assistant",
+                             QString("%1 window not found. Please ensure %1 is running.")
+                                 .arg(browserDisplayName),
+                             QMessageBox::Ok);
         return;
     }
 
@@ -187,10 +218,15 @@ void ProgramChanger::on_pushButton_StandardAdd_clicked()
     }
 
     QString nextTermLongForm = statusBarManager->convertTermToLongFormat(nextTerm);
+    QString browserExe = ConfigManager::getBrowserFromConfig();
+    QString browserDisplayName = ConfigManager::getBrowserDisplayName(browserExe);
 
-    // Activate Chrome/Browser
-    if (!WindowManager::activateWindow("chrome.exe")) {
-        QMessageBox::warning(this, "DTE Assistant", "Chrome window not found. Please ensure Chrome is running.", QMessageBox::Ok);
+    // Activate Browser
+    if (!WindowManager::activateWindow(browserExe)) {
+        QMessageBox::warning(this, "DTE Assistant",
+                             QString("%1 window not found. Please ensure %1 is running.")
+                                 .arg(browserDisplayName),
+                             QMessageBox::Ok);
         return;
     }
 
@@ -211,10 +247,15 @@ void ProgramChanger::on_pushButton_StandardUpdate_clicked()
     }
 
     QString nextTermLongForm = statusBarManager->convertTermToLongFormat(nextTerm);
+    QString browserExe = ConfigManager::getBrowserFromConfig();
+    QString browserDisplayName = ConfigManager::getBrowserDisplayName(browserExe);
 
-    // Activate Chrome/Browser
-    if (!WindowManager::activateWindow("chrome.exe")) {
-        QMessageBox::warning(this, "DTE Assistant", "Chrome window not found. Please ensure Chrome is running.", QMessageBox::Ok);
+    // Activate Browser
+    if (!WindowManager::activateWindow(browserExe)) {
+        QMessageBox::warning(this, "DTE Assistant",
+                             QString("%1 window not found. Please ensure %1 is running.")
+                                 .arg(browserDisplayName),
+                             QMessageBox::Ok);
         return;
     }
 
@@ -235,10 +276,15 @@ void ProgramChanger::on_pushButton_UrgentSingleToSingle_clicked()
     }
 
     QString currentTermLongForm = statusBarManager->convertTermToLongFormat(currentTerm);
+    QString browserExe = ConfigManager::getBrowserFromConfig();
+    QString browserDisplayName = ConfigManager::getBrowserDisplayName(browserExe);
 
-    // Activate Chrome/Browser
-    if (!WindowManager::activateWindow("chrome.exe")) {
-        QMessageBox::warning(this, "DTE Assistant", "Chrome window not found. Please ensure Chrome is running.", QMessageBox::Ok);
+    // Activate Browser
+    if (!WindowManager::activateWindow(browserExe)) {
+        QMessageBox::warning(this, "DTE Assistant",
+                             QString("%1 window not found. Please ensure %1 is running.")
+                                 .arg(browserDisplayName),
+                             QMessageBox::Ok);
         return;
     }
 
@@ -259,10 +305,15 @@ void ProgramChanger::on_pushButton_UrgentSingleToStacked_clicked()
     }
 
     QString currentTermLongForm = statusBarManager->convertTermToLongFormat(currentTerm);
+    QString browserExe = ConfigManager::getBrowserFromConfig();
+    QString browserDisplayName = ConfigManager::getBrowserDisplayName(browserExe);
 
-    // Activate Chrome/Browser
-    if (!WindowManager::activateWindow("chrome.exe")) {
-        QMessageBox::warning(this, "DTE Assistant", "Chrome window not found. Please ensure Chrome is running.", QMessageBox::Ok);
+    // Activate Browser
+    if (!WindowManager::activateWindow(browserExe)) {
+        QMessageBox::warning(this, "DTE Assistant",
+                             QString("%1 window not found. Please ensure %1 is running.")
+                                 .arg(browserDisplayName),
+                             QMessageBox::Ok);
         return;
     }
 
@@ -283,10 +334,15 @@ void ProgramChanger::on_pushButton_UrgentStackedToSingle_clicked()
     }
 
     QString currentTermLongForm = statusBarManager->convertTermToLongFormat(currentTerm);
+    QString browserExe = ConfigManager::getBrowserFromConfig();
+    QString browserDisplayName = ConfigManager::getBrowserDisplayName(browserExe);
 
-    // Activate Chrome/Browser
-    if (!WindowManager::activateWindow("chrome.exe")) {
-        QMessageBox::warning(this, "DTE Assistant", "Chrome window not found. Please ensure Chrome is running.", QMessageBox::Ok);
+    // Activate Browser
+    if (!WindowManager::activateWindow(browserExe)) {
+        QMessageBox::warning(this, "DTE Assistant",
+                             QString("%1 window not found. Please ensure %1 is running.")
+                                 .arg(browserDisplayName),
+                             QMessageBox::Ok);
         return;
     }
 
@@ -307,10 +363,15 @@ void ProgramChanger::on_pushButton_UrgentStackedToStacked_clicked()
     }
 
     QString currentTermLongForm = statusBarManager->convertTermToLongFormat(currentTerm);
+    QString browserExe = ConfigManager::getBrowserFromConfig();
+    QString browserDisplayName = ConfigManager::getBrowserDisplayName(browserExe);
 
-    // Activate Chrome/Browser
-    if (!WindowManager::activateWindow("chrome.exe")) {
-        QMessageBox::warning(this, "DTE Assistant", "Chrome window not found. Please ensure Chrome is running.", QMessageBox::Ok);
+    // Activate Browser
+    if (!WindowManager::activateWindow(browserExe)) {
+        QMessageBox::warning(this, "DTE Assistant",
+                             QString("%1 window not found. Please ensure %1 is running.")
+                                 .arg(browserDisplayName),
+                             QMessageBox::Ok);
         return;
     }
 
@@ -331,10 +392,15 @@ void ProgramChanger::on_pushButton_UrgentRemove_clicked()
     }
 
     QString currentTermLongForm = statusBarManager->convertTermToLongFormat(currentTerm);
+    QString browserExe = ConfigManager::getBrowserFromConfig();
+    QString browserDisplayName = ConfigManager::getBrowserDisplayName(browserExe);
 
-    // Activate Chrome/Browser
-    if (!WindowManager::activateWindow("chrome.exe")) {
-        QMessageBox::warning(this, "DTE Assistant", "Chrome window not found. Please ensure Chrome is running.", QMessageBox::Ok);
+    // Activate Browser
+    if (!WindowManager::activateWindow(browserExe)) {
+        QMessageBox::warning(this, "DTE Assistant",
+                             QString("%1 window not found. Please ensure %1 is running.")
+                                 .arg(browserDisplayName),
+                             QMessageBox::Ok);
         return;
     }
 
@@ -355,10 +421,15 @@ void ProgramChanger::on_pushButton_UrgentAdd_clicked()
     }
 
     QString currentTermLongForm = statusBarManager->convertTermToLongFormat(currentTerm);
+    QString browserExe = ConfigManager::getBrowserFromConfig();
+    QString browserDisplayName = ConfigManager::getBrowserDisplayName(browserExe);
 
-    // Activate Chrome/Browser
-    if (!WindowManager::activateWindow("chrome.exe")) {
-        QMessageBox::warning(this, "DTE Assistant", "Chrome window not found. Please ensure Chrome is running.", QMessageBox::Ok);
+    // Activate Browser
+    if (!WindowManager::activateWindow(browserExe)) {
+        QMessageBox::warning(this, "DTE Assistant",
+                             QString("%1 window not found. Please ensure %1 is running.")
+                                 .arg(browserDisplayName),
+                             QMessageBox::Ok);
         return;
     }
 
@@ -379,10 +450,15 @@ void ProgramChanger::on_pushButton_UrgentUpdate_clicked()
     }
 
     QString currentTermLongForm = statusBarManager->convertTermToLongFormat(currentTerm);
+    QString browserExe = ConfigManager::getBrowserFromConfig();
+    QString browserDisplayName = ConfigManager::getBrowserDisplayName(browserExe);
 
-    // Activate Chrome/Browser
-    if (!WindowManager::activateWindow("chrome.exe")) {
-        QMessageBox::warning(this, "DTE Assistant", "Chrome window not found. Please ensure Chrome is running.", QMessageBox::Ok);
+    // Activate Browser
+    if (!WindowManager::activateWindow(browserExe)) {
+        QMessageBox::warning(this, "DTE Assistant",
+                             QString("%1 window not found. Please ensure %1 is running.")
+                                 .arg(browserDisplayName),
+                             QMessageBox::Ok);
         return;
     }
 

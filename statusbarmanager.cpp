@@ -16,7 +16,7 @@ StatusBarManager::StatusBarManager(QStatusBar *statusBar, QObject *parent)
     , m_statusBar(statusBar)
     , m_appCheckTimer(nullptr)
     , m_excelStatusLabel(nullptr)
-    , m_chromeStatusLabel(nullptr)
+    , m_browserStatusLabel(nullptr)
     , m_usernameLabel(nullptr)
     , m_currentTermLabel(nullptr)
 {
@@ -40,10 +40,10 @@ void StatusBarManager::setupStatusBar()
     m_excelStatusLabel->setStyleSheet("QLabel { padding: 2px 5px; border: none; }");
     m_statusBar->addWidget(m_excelStatusLabel);
 
-    // Create status label for Chrome
-    m_chromeStatusLabel = new QLabel(m_statusBar);
-    m_chromeStatusLabel->setStyleSheet("QLabel { padding: 2px 5px; border: none; }");
-    m_statusBar->addWidget(m_chromeStatusLabel);
+    // Create status label for Browser
+    m_browserStatusLabel = new QLabel(m_statusBar);
+    m_browserStatusLabel->setStyleSheet("QLabel { padding: 2px 5px; border: none; }");
+    m_statusBar->addWidget(m_browserStatusLabel);
 
     // Create status label for username
     QString username = ConfigManager::getUsernameFromConfig();
@@ -92,13 +92,16 @@ void StatusBarManager::checkApplicationStatus()
         m_excelStatusLabel->setStyleSheet("QLabel { color: red; padding: 2px 5px; font-weight: bold; border: none; }");
     }
 
-    // Check Chrome status
-    if (isChromeRunning()) {
-        m_chromeStatusLabel->setText("✓ Chrome is running");
-        m_chromeStatusLabel->setStyleSheet("QLabel { color: green; padding: 2px 5px; font-weight: bold; border: none; }");
+    // Check Browser status
+    QString browserExe = ConfigManager::getBrowserFromConfig();
+    QString browserDisplayName = ConfigManager::getBrowserDisplayName(browserExe);
+
+    if (isBrowserRunning()) {
+        m_browserStatusLabel->setText(QString("✓ %1 is running").arg(browserDisplayName));
+        m_browserStatusLabel->setStyleSheet("QLabel { color: green; padding: 2px 5px; font-weight: bold; border: none; }");
     } else {
-        m_chromeStatusLabel->setText("✗ Chrome is not running");
-        m_chromeStatusLabel->setStyleSheet("QLabel { color: red; padding: 2px 5px; font-weight: bold; border: none; }");
+        m_browserStatusLabel->setText(QString("✗ %1 is not running").arg(browserDisplayName));
+        m_browserStatusLabel->setStyleSheet("QLabel { color: red; padding: 2px 5px; font-weight: bold; border: none; }");
     }
 }
 
@@ -136,9 +139,11 @@ bool StatusBarManager::isExcelRunning()
 #endif
 }
 
-bool StatusBarManager::isChromeRunning()
+bool StatusBarManager::isBrowserRunning()
 {
 #ifdef _WIN32
+    QString browserExe = ConfigManager::getBrowserFromConfig().toLower();
+
     HANDLE hProcessSnap;
     PROCESSENTRY32 pe32;
     bool found = false;
@@ -157,7 +162,7 @@ bool StatusBarManager::isChromeRunning()
 
     do {
         QString processName = QString::fromWCharArray(pe32.szExeFile).toLower();
-        if (processName == "chrome.exe") {
+        if (processName == browserExe) {
             found = true;
             break;
         }

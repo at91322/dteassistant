@@ -137,6 +137,7 @@
     </property>
     <addaction name="actionChange_Username"/>
     <addaction name="actionChange_Current_Term"/>
+    <addaction name="actionChange_Default_Web_Browser"/>
    </widget>
    <widget class="QMenu" name="menuWindow">
     <property name="title">
@@ -176,6 +177,11 @@
   <action name="actionDataImport">
    <property name="text">
     <string>Import</string>
+   </property>
+  </action>
+  <action name="actionChange_Default_Web_Browser">
+   <property name="text">
+    <string>Change Default Web Browser</string>
    </property>
   </action>
  </widget>

@@ -1,5 +1,7 @@
 #include "termbuilder.h"
 #include "ui_termbuilder.h"
+
+#include "configmanager.h"
 #include "autotab.h"
 #include "enterkeyhandler.h"
 
@@ -50,6 +52,11 @@ void TermBuilder::on_actionChange_Username_triggered()
 void TermBuilder::on_actionChange_Current_Term_triggered()
 {
     statusBarManager->updateCurrentTerm(this);
+}
+
+void TermBuilder::on_actionactionChange_Default_Web_Browser_triggered()
+{
+    ConfigManager::updateBrowser(this);
 }
 
 void TermBuilder::on_actionAlways_On_Top_triggered(bool checked)

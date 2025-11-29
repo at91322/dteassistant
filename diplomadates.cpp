@@ -1,5 +1,7 @@
 #include "diplomadates.h"
 #include "ui_diplomadates.h"
+
+#include "configmanager.h"
 #include "autotab.h"
 #include "enterkeyhandler.h"
 
@@ -48,6 +50,11 @@ void DiplomaDates::on_actionChange_Username_triggered()
 void DiplomaDates::on_actionChange_Current_Term_triggered()
 {
     statusBarManager->updateCurrentTerm(this);
+}
+
+void DiplomaDates::on_actionactionChange_Default_Web_Browser_triggered()
+{
+    ConfigManager::updateBrowser(this);
 }
 
 void DiplomaDates::on_actionAlways_On_Top_triggered(bool checked)
