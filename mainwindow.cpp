@@ -196,9 +196,9 @@ void MainWindow::on_actionChange_Current_Term_triggered()
     statusBarManager->updateCurrentTerm(this);
 }
 
-void MainWindow::on_actionactionChange_Default_Web_Browser_triggered()
+void MainWindow::on_actionChange_Default_Web_Browser_triggered()
 {
-    ConfigManager::updateBrowser(this);
+    statusBarManager->updateBrowser(this);
 }
 
 void MainWindow::on_actionAlways_On_Top_triggered(bool checked)

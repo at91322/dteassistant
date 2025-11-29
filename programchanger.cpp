@@ -51,9 +51,9 @@ void ProgramChanger::on_actionChange_Current_Term_triggered()
     statusBarManager->updateCurrentTerm(this);
 }
 
-void ProgramChanger::on_actionactionChange_Default_Web_Browser_triggered()
+void ProgramChanger::on_actionChange_Default_Web_Browser_triggered()
 {
-    ConfigManager::updateBrowser(this);
+    statusBarManager->updateBrowser(this);
 }
 
 void ProgramChanger::on_actionAlways_On_Top_triggered(bool checked)

@@ -80,9 +80,9 @@ QString ConfigManager::getBrowserDisplayName(const QString &browserExe)
 {
     QString lower = browserExe.toLower();
 
-    if (lower == "chrome.exe") return "Google Chrome";
-    if (lower == "firefox.exe") return "Mozilla Firefox";
-    if (lower == "msedge.exe") return "Microsoft Edge";
+    if (lower == "chrome.exe") return "Chrome";
+    if (lower == "firefox.exe") return "Firefox";
+    if (lower == "msedge.exe") return "Edge";
     if (lower == "opera.exe") return "Opera";
 
     return browserExe; // Return as-is if unknown
@@ -181,7 +181,7 @@ void ConfigManager::updateBrowser(QWidget *parentWidget)
     browsers << "chrome.exe" << "firefox.exe" << "msedge.exe" << "opera.exe";
 
     QStringList displayNames;
-    for (const QString &browser : browsers) {
+    for (const auto &browser : browsers) {
         displayNames << getBrowserDisplayName(browser);
     }
 

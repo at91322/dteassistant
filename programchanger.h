@@ -22,7 +22,7 @@ private slots:
 
     void on_actionChange_Username_triggered();
     void on_actionChange_Current_Term_triggered();
-    void on_actionactionChange_Default_Web_Browser_triggered();
+    void on_actionChange_Default_Web_Browser_triggered();
     void on_actionAlways_On_Top_triggered(bool checked);
 
     void on_pushButton_StandardSingleToSingle_clicked();

@@ -1,7 +1,6 @@
 #include "articulator.h"
 #include "ui_articulator.h"
 
-#include "configmanager.h"
 #include "autotab.h"
 #include "enterkeyhandler.h"
 
@@ -56,9 +55,9 @@ void Articulator::on_actionChange_Current_Term_triggered()
     statusBarManager->updateCurrentTerm(this);
 }
 
-void Articulator::on_actionactionChange_Default_Web_Browser_triggered()
+void Articulator::on_actionChange_Default_Web_Browser_triggered()
 {
-    ConfigManager::updateBrowser(this);
+    statusBarManager->updateBrowser(this);
 }
 
 void Articulator::on_actionAlways_On_Top_triggered(bool checked)

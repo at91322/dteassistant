@@ -209,6 +209,12 @@ void StatusBarManager::updateCurrentTerm(QWidget *parentWidget)
     m_currentTermLabel->setText(QString("Term: %1").arg(currentTerm));
 }
 
+void StatusBarManager::updateBrowser(QWidget *parentWidget)
+{
+    ConfigManager::updateBrowser(parentWidget);
+    // Refresh will happen automatically on next timer tick
+}
+
 QString StatusBarManager::getCurrentTermFromConfig()
 {
     return ConfigManager::getCurrentTermFromConfig();
@@ -217,6 +223,11 @@ QString StatusBarManager::getCurrentTermFromConfig()
 QString StatusBarManager::getNextTermFromConfig()
 {
     return ConfigManager::getNextTermFromConfig();
+}
+
+QString StatusBarManager::getBrowserFromConfig()
+{
+    return ConfigManager::getBrowserFromConfig();
 }
 
 QString StatusBarManager::convertTermToLongFormat(const QString &termCode)
