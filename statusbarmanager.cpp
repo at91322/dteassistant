@@ -46,14 +46,14 @@ void StatusBarManager::setupStatusBar()
     m_statusBar->addWidget(m_chromeStatusLabel);
 
     // Create status label for username
-    QString username = ConfigManager->getUsernameFromConfig();
+    QString username = ConfigManager::getUsernameFromConfig();
     m_usernameLabel = new QLabel(m_statusBar);
     m_usernameLabel->setText(QString("User: %1").arg(username.isEmpty() ? "Not set" : username));
     m_usernameLabel->setStyleSheet("QLabel { padding: 2px 5px; border: none; }");
     m_statusBar->addPermanentWidget(m_usernameLabel);
 
     // Create status label for current term
-    QString currentTerm = getCurrentTermFromConfig();
+    QString currentTerm = ConfigManager::getCurrentTermFromConfig();
     m_currentTermLabel = new QLabel(m_statusBar);
     m_currentTermLabel->setText(QString("Term: %1").arg(currentTerm));
     m_currentTermLabel->setStyleSheet("QLabel { padding: 2px 5px; border: none; }");
@@ -187,3 +187,34 @@ void StatusBarManager::toggleAlwaysOnTop(QWidget *window, bool checked)
     window->show();
 }
 
+// Convenience wrappers that delegate to ConfigManager
+void StatusBarManager::updateUsername(QWidget *parentWidget)
+{
+    ConfigManager::updateUsername(parentWidget);
+    // Refresh the status bar label
+    QString username = ConfigManager::getUsernameFromConfig();
+    m_usernameLabel->setText(QString("User: %1").arg(username.isEmpty() ? "Not set" : username));
+}
+
+void StatusBarManager::updateCurrentTerm(QWidget *parentWidget)
+{
+    ConfigManager::updateCurrentTerm(parentWidget);
+    // Refresh the status bar label
+    QString currentTerm = ConfigManager::getCurrentTermFromConfig();
+    m_currentTermLabel->setText(QString("Term: %1").arg(currentTerm));
+}
+
+QString StatusBarManager::getCurrentTermFromConfig()
+{
+    return ConfigManager::getCurrentTermFromConfig();
+}
+
+QString StatusBarManager::getNextTermFromConfig()
+{
+    return ConfigManager::getNextTermFromConfig();
+}
+
+QString StatusBarManager::convertTermToLongFormat(const QString &termCode)
+{
+    return ConfigManager::convertTermToLongFormat(termCode);
+}

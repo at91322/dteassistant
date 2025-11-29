@@ -24,12 +24,8 @@ qt_add_executable(dte
     keyboardautomation.h keyboardautomation.cpp
     statusbarmanager.h statusbarmanager.cpp
     windowmanager.h windowmanager.cpp
-    windowmanager.cpp
     excelmanager.h excelmanager.cpp
-    excelmanager.cpp
     configmanager.h configmanager.cpp
-    configmanager.h
-
 )
 
 target_link_libraries(dte

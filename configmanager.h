@@ -3,28 +3,21 @@
 
 #include <QObject>
 
-class ConfigManager : public QObject
+class ConfigManager
 {
-    Q_OBJECT
-
 public:
-    explicit ConfigManager(QObject *parent = nullptr);
-    ~ConfigManager();
-
     // Config access
-    QString getUsernameFromConfig();
-    QString getCurrentTermFromConfig();
-    QString getNextTermFromConfig();
-    QString getPreviousTermFromConfig();
+    static QString getUsernameFromConfig();
+    static QString getCurrentTermFromConfig();
+    static QString getNextTermFromConfig();
+    static QString getPreviousTermFromConfig();
 
     // Term Conversion
-    QString convertTermToLongFormat(const QString &termCode); // "202630 -> Winter 2026"
+    static QString convertTermToLongFormat(const QString &termCode); // "202630 -> Winter 2026"
 
     // Config updates
-    void updateUsername(QWidget *parentWidget);
-    void updateCurrentTerm(QWidget *parentWidget);
-
-private:
+    static void updateUsername(QWidget *parentWidget);
+    static void updateCurrentTerm(QWidget *parentWidget);
 };
 
 #endif // CONFIGMANAGER_H

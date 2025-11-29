@@ -22,6 +22,13 @@ public:
     // Window management
     void toggleAlwaysOnTop(QWidget *window, bool checked);
 
+    // Config wrappers for convenience (delegate to ConfigManager)
+    void updateUsername(QWidget *parentWidget);
+    void updateCurrentTerm(QWidget *parentWidget);
+    QString getCurrentTermFromConfig();
+    QString getNextTermFromConfig();
+    QString convertTermToLongFormat(const QString &termCode);
+
 private slots:
     void checkApplicationStatus();
 

@@ -110,7 +110,7 @@ void MainWindow::on_pushButton_EnterCourses_clicked()
 
 void MainWindow::on_pushButton_GrabCases_clicked()
 {
-    QString username = ConfigManager->getUsernameFromConfig();
+    QString username = ConfigManager::getUsernameFromConfig();
 
     if (username.isEmpty()) {
         QMessageBox::warning(this, "DTE Assistant", "Username not found in config.ini");
