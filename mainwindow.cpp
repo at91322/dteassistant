@@ -2,6 +2,7 @@
 #include "ui_mainwindow.h"
 
 #include "windowmanager.h"
+#include "configmanager.h"
 #include "enterkeyhandler.h"
 #include "keyboardautomation.h"
 #include "documentationhelper.h"
@@ -109,7 +110,7 @@ void MainWindow::on_pushButton_EnterCourses_clicked()
 
 void MainWindow::on_pushButton_GrabCases_clicked()
 {
-    QString username = statusBarManager->getUsernameFromConfig();
+    QString username = ConfigManager->getUsernameFromConfig();
 
     if (username.isEmpty()) {
         QMessageBox::warning(this, "DTE Assistant", "Username not found in config.ini");

@@ -27,6 +27,8 @@ qt_add_executable(dte
     windowmanager.cpp
     excelmanager.h excelmanager.cpp
     excelmanager.cpp
+    configmanager.h configmanager.cpp
+    configmanager.h
 
 )
 
