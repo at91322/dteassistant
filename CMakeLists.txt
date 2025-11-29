@@ -2,6 +2,7 @@ cmake_minimum_required(VERSION 3.19)
 project(dte LANGUAGES CXX)
 
 find_package(Qt6 6.5 REQUIRED COMPONENTS Core Widgets)
+find_package(Qt6 REQUIRED COMPONENTS Widgets)
 
 qt_standard_project_setup()
 
@@ -29,6 +30,11 @@ qt_add_executable(dte
     build/Desktop_Qt_6_10_1_MinGW_64_bit-Debug/docs/ARTA_howTo.md
     build/Desktop_Qt_6_10_1_MinGW_64_bit-Debug/docs/CHNG_howTo.md
     build/Desktop_Qt_6_10_1_MinGW_64_bit-Debug/docs/DIPL_howTo.md
+    spreadsheetview.h spreadsheetview.cpp
+    ValidationError.h
+    transcriptreviewvalidator.h transcriptreviewvalidator.cpp
+    LICENSE.md
+    README.md
 )
 
 target_link_libraries(dte
@@ -36,6 +42,7 @@ target_link_libraries(dte
         Qt::Core
         Qt::Widgets
 )
+target_link_libraries(dte PRIVATE Qt6::Widgets)
 
 include(GNUInstallDirs)
 
