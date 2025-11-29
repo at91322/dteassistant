@@ -168,21 +168,21 @@ void MainWindow::on_pushButton_DiplDates_clicked()
 void MainWindow::on_pushButton_Help_ARTA_clicked()
 {
     QString docsPath = DocumentationHelper::getDocsPath();
-    QString docFile = QDir(docsPath).filePath("sample.md");
+    QString docFile = QDir(docsPath).filePath("ARTA_howTo.md");
     DocumentationHelper::showDocumentationViewer(docFile, this);
 }
 
 void MainWindow::on_pushButton_Help_CHNG_clicked()
 {
     QString docsPath = DocumentationHelper::getDocsPath();
-    QString docFile = QDir(docsPath).filePath("sample.md");
+    QString docFile = QDir(docsPath).filePath("CHNG_howTo.md");
     DocumentationHelper::showDocumentationViewer(docFile, this);
 }
 
 void MainWindow::on_pushButton_Help_SHADIPL_clicked()
 {
     QString docsPath = DocumentationHelper::getDocsPath();
-    QString docFile = QDir(docsPath).filePath("sample.md");
+    QString docFile = QDir(docsPath).filePath("DIPL_howTo.md");
     DocumentationHelper::showDocumentationViewer(docFile, this);
 }
 

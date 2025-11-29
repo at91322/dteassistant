@@ -26,6 +26,9 @@ qt_add_executable(dte
     windowmanager.h windowmanager.cpp
     excelmanager.h excelmanager.cpp
     configmanager.h configmanager.cpp
+    build/Desktop_Qt_6_10_1_MinGW_64_bit-Debug/docs/ARTA_howTo.md
+    build/Desktop_Qt_6_10_1_MinGW_64_bit-Debug/docs/CHNG_howTo.md
+    build/Desktop_Qt_6_10_1_MinGW_64_bit-Debug/docs/DIPL_howTo.md
 )
 
 target_link_libraries(dte
