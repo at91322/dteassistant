@@ -117,8 +117,8 @@ QString DocumentationHelper::convertMarkdownToHtml(const QString &markdownText)
 {
     QString html = "<html><head><style>"
                    "body { font-family: Arial, sans-serif; padding: 20px; }"
-                   "h1 { color: #2c3e50; border-bottom: 2px solid #3498db; }"
-                   "h2 { color: #34495e; border-bottom: 1px solid #95a5a6; }"
+                   "h1 { color: #FFFFFF; border-bottom: 2px solid #3498db; }"
+                   "h2 { color: #AAAAAA; border-bottom: 1px solid #95a5a6; }"
                    "code { background-color: #f4f4f4; padding: 2px 4px; }"
                    "pre { background-color: #f4f4f4; padding: 10px; border-radius: 4px; }"
                    "</style></head><body>";
@@ -158,6 +158,12 @@ QString DocumentationHelper::convertMarkdownToHtml(const QString &markdownText)
             processed.replace(QRegularExpression("\\*\\*(.+?)\\*\\*"), "<strong>\\1</strong>");
             html += "<p>" + processed + "</p>";
         }
+        // Italics
+        else if (line.contains("*")) {
+            QString processed = line;
+            processed.replace(QRegularExpression("\\*(.+?)\\*"), "<em>\\1</em>");
+            html += "<p>" + processed + "</p>";
+        }
         // Lists
         else if (line.startsWith("- ") || line.startsWith("* ")) {
             html += "<li>" + line.mid(2) + "</li>";
@@ -172,23 +178,25 @@ QString DocumentationHelper::convertMarkdownToHtml(const QString &markdownText)
     return html;
 }
 
-QString processInlineFormatting(const QString &text)
+static QString processInlineFormatting(const QString &text)
 {
     QString result = text;
 
-    // Bold (**text** or __text__)
-    result.replace(QRegularExpression("\\*\\*(.+?)\\*\\*"), "<strong>\\1</strong>");
-    result.replace(QRegularExpression("__(.+?)__"), "<strong>\\1</strong>");
-
-    // Italic (*text* or _text_)
-    result.replace(QRegularExpression("\\*(.+?)\\*"), "<em>\\1</em>");
-    result.replace(QRegularExpression("_(.+?)_"), "<em>\\1</em>");
-
-    // Inline code (`code`)
-    result.replace(QRegularExpression("`(.+?)`"), "<code>\\1</code>");
+    // Inline code first (to protect from other formatting)
+    result.replace(QRegularExpression("`([^`]+)`"), "<code>\\1</code>");
 
     // Links [text](url)
-    result.replace(QRegularExpression("\\[(.+?)\\]\\((.+?)\\)"), "<a href=\"\\2\">\\1</a>");
+    result.replace(QRegularExpression("\\[([^\\]]+)\\]\\(([^\\)]+)\\)"), "<a href=\"\\2\">\\1</a>");
+
+    // Bold - must come before italic!
+    // Match ** or __ with at least one character inside
+    result.replace(QRegularExpression("\\*\\*([^\\*]+)\\*\\*"), "<strong>\\1</strong>");
+    result.replace(QRegularExpression("__([^_]+)__"), "<strong>\\1</strong>");
+
+    // Italic - single * or _
+    // Match * with at least one character that isn't *
+    result.replace(QRegularExpression("\\*([^\\*]+)\\*"), "<em>\\1</em>");
+    result.replace(QRegularExpression("_([^_]+)_"), "<em>\\1</em>");
 
     return result;
 }
