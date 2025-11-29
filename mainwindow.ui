@@ -6,181 +6,442 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>580</width>
-    <height>220</height>
+    <width>500</width>
+    <height>300</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
-    <width>580</width>
-    <height>220</height>
+    <width>500</width>
+    <height>300</height>
    </size>
   </property>
   <property name="maximumSize">
    <size>
-    <width>580</width>
-    <height>220</height>
+    <width>500</width>
+    <height>300</height>
    </size>
   </property>
   <property name="windowTitle">
    <string>DTE Assistant | Lane Community College</string>
   </property>
+  <property name="tabShape">
+   <enum>QTabWidget::TabShape::Rounded</enum>
+  </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QGroupBox" name="groupBox_TranscriptReview">
+   <widget class="QTabWidget" name="tabWidget">
     <property name="geometry">
      <rect>
-      <x>20</x>
-      <y>0</y>
-      <width>171</width>
-      <height>161</height>
+      <x>10</x>
+      <y>30</y>
+      <width>471</width>
+      <height>201</height>
      </rect>
     </property>
-    <property name="title">
-     <string>Transcript Review</string>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+     </font>
     </property>
-    <widget class="QPushButton" name="pushButton_Articulate">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>30</y>
-       <width>151</width>
-       <height>24</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Articulate Courses</string>
-     </property>
+    <property name="toolTip">
+     <string>Enter batches of diploma dates in SHADIPL</string>
+    </property>
+    <property name="tabShape">
+     <enum>QTabWidget::TabShape::Rounded</enum>
+    </property>
+    <property name="currentIndex">
+     <number>0</number>
+    </property>
+    <widget class="QWidget" name="tab_TranscriptReview">
+     <attribute name="title">
+      <string>Transcript Review</string>
+     </attribute>
+     <widget class="QPushButton" name="pushButton_Articulate">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>10</y>
+        <width>271</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>12</pointsize>
+       </font>
+      </property>
+      <property name="toolTip">
+       <string>Enter batches of data into SHATATR</string>
+      </property>
+      <property name="accessibleName">
+       <string>Articulate Courses</string>
+      </property>
+      <property name="accessibleDescription">
+       <string>Enter batches of data into SHATATR</string>
+      </property>
+      <property name="layoutDirection">
+       <enum>Qt::LayoutDirection::LeftToRight</enum>
+      </property>
+      <property name="text">
+       <string>Articulate Courses</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_TermBuilder">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>60</y>
+        <width>271</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>12</pointsize>
+       </font>
+      </property>
+      <property name="toolTip">
+       <string>Build Transfer Terms in SHATRNS</string>
+      </property>
+      <property name="accessibleName">
+       <string>Build Transfer Terms</string>
+      </property>
+      <property name="accessibleDescription">
+       <string>Build Transfer Terms in SHATRNS</string>
+      </property>
+      <property name="text">
+       <string>Build Transfer Terms</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_EnterCourses">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>110</y>
+        <width>271</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>12</pointsize>
+       </font>
+      </property>
+      <property name="toolTip">
+       <string>Enter Transfer Course History in SHATAEQ</string>
+      </property>
+      <property name="accessibleName">
+       <string>Build Transfer Terms</string>
+      </property>
+      <property name="accessibleDescription">
+       <string>Enter Transfer Course History in SHATAEQ</string>
+      </property>
+      <property name="text">
+       <string>Enter Transfer Courses</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_Help_ARTA">
+      <property name="geometry">
+       <rect>
+        <x>294</x>
+        <y>10</y>
+        <width>161</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+        <italic>true</italic>
+       </font>
+      </property>
+      <property name="toolTip">
+       <string>TBD: Access a tutorial on the ARTA Quickflow, and Transcript Evaluation</string>
+      </property>
+      <property name="text">
+       <string>Tutorial: ARTA Quickflow</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_RESOURCE_1">
+      <property name="geometry">
+       <rect>
+        <x>294</x>
+        <y>60</y>
+        <width>161</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+        <italic>true</italic>
+       </font>
+      </property>
+      <property name="toolTip">
+       <string>TBD: Access an external resource</string>
+      </property>
+      <property name="text">
+       <string>RESOURCE</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_RESOURCE_2">
+      <property name="geometry">
+       <rect>
+        <x>294</x>
+        <y>110</y>
+        <width>161</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+        <italic>true</italic>
+       </font>
+      </property>
+      <property name="toolTip">
+       <string>TBD: Access an external resource</string>
+      </property>
+      <property name="text">
+       <string>RESOURCE</string>
+      </property>
+     </widget>
     </widget>
-    <widget class="QPushButton" name="pushButton_TermBuilder">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>60</y>
-       <width>151</width>
-       <height>24</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Build Transfer Terms</string>
-     </property>
+    <widget class="QWidget" name="tab_ProgramChanges">
+     <attribute name="title">
+      <string>Programs of Study</string>
+     </attribute>
+     <widget class="QPushButton" name="pushButton_Help_CHNG">
+      <property name="geometry">
+       <rect>
+        <x>294</x>
+        <y>10</y>
+        <width>161</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+        <italic>true</italic>
+       </font>
+      </property>
+      <property name="toolTip">
+       <string>TBD: Access a tutorial on the CHNG Quickflow, and the Changing a Program of Study Process</string>
+      </property>
+      <property name="text">
+       <string>Tutorial: CHNG Quickflow</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_CaseComments">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>90</y>
+        <width>271</width>
+        <height>61</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>12</pointsize>
+       </font>
+      </property>
+      <property name="toolTip">
+       <string>Access the interface for entering case comment snippets.</string>
+      </property>
+      <property name="accessibleName">
+       <string>TO_MENU: Case Comments</string>
+      </property>
+      <property name="accessibleDescription">
+       <string>Access the interface for entering case comment snippets.</string>
+      </property>
+      <property name="text">
+       <string>Enter Case Comments</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_GrabCases">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>10</y>
+        <width>271</width>
+        <height>61</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>12</pointsize>
+       </font>
+      </property>
+      <property name="toolTip">
+       <string>Assign a case to yourself from the Cases dashboard of Navigate 360.</string>
+      </property>
+      <property name="accessibleName">
+       <string>ACTION: Grab a case in Navigate 360</string>
+      </property>
+      <property name="accessibleDescription">
+       <string>Assign a case to yourself from the Cases dashboard of Navigate 360.</string>
+      </property>
+      <property name="text">
+       <string>Grab Cases</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_RESOURCE_3">
+      <property name="geometry">
+       <rect>
+        <x>294</x>
+        <y>60</y>
+        <width>161</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+        <italic>true</italic>
+       </font>
+      </property>
+      <property name="toolTip">
+       <string>TBD: Access an external resource</string>
+      </property>
+      <property name="text">
+       <string>RESOURCE</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_RESOURCE_4">
+      <property name="geometry">
+       <rect>
+        <x>294</x>
+        <y>110</y>
+        <width>161</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+        <italic>true</italic>
+       </font>
+      </property>
+      <property name="toolTip">
+       <string>TBD: Access an external resource</string>
+      </property>
+      <property name="text">
+       <string>RESOURCE</string>
+      </property>
+     </widget>
     </widget>
-    <widget class="QPushButton" name="pushButton_EnterCourses">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>90</y>
-       <width>151</width>
-       <height>24</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Enter Transfer Courses</string>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="pushButton_Help_ARTA">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>120</y>
-       <width>151</width>
-       <height>24</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Tutorial: ARTA</string>
-     </property>
+    <widget class="QWidget" name="tab_Diplomas">
+     <attribute name="title">
+      <string>Diploma Processing</string>
+     </attribute>
+     <widget class="QPushButton" name="pushButton_Help_SHADIPL">
+      <property name="geometry">
+       <rect>
+        <x>294</x>
+        <y>10</y>
+        <width>161</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+        <italic>true</italic>
+       </font>
+      </property>
+      <property name="toolTip">
+       <string>TBD: Access a tutorial on Diploma processing procedures, including the SHADIPL batch data entry process enabled here</string>
+      </property>
+      <property name="text">
+       <string>Tutorial: SHADIPL</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_DiplDates">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>10</y>
+        <width>271</width>
+        <height>141</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>12</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Enter Diploma Dates</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_RESOURCE_5">
+      <property name="geometry">
+       <rect>
+        <x>294</x>
+        <y>60</y>
+        <width>161</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+        <italic>true</italic>
+       </font>
+      </property>
+      <property name="toolTip">
+       <string>TBD: Access an external resource</string>
+      </property>
+      <property name="text">
+       <string>RESOURCE</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_RESOURCE_6">
+      <property name="geometry">
+       <rect>
+        <x>294</x>
+        <y>110</y>
+        <width>161</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+        <italic>true</italic>
+       </font>
+      </property>
+      <property name="toolTip">
+       <string>TBD: Access an external resource</string>
+      </property>
+      <property name="text">
+       <string>RESOURCE</string>
+      </property>
+     </widget>
     </widget>
    </widget>
-   <widget class="QGroupBox" name="groupBox_ProgramChanges">
+   <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>200</x>
+      <x>10</x>
       <y>0</y>
-      <width>171</width>
-      <height>161</height>
+      <width>471</width>
+      <height>31</height>
      </rect>
     </property>
-    <property name="title">
-     <string>Program Changes</string>
+    <property name="font">
+     <font>
+      <pointsize>11</pointsize>
+     </font>
     </property>
-    <widget class="QPushButton" name="pushButton_GrabCases">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>30</y>
-       <width>151</width>
-       <height>24</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Grab Cases</string>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="pushButton_CaseComments">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>60</y>
-       <width>151</width>
-       <height>24</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Enter Case Comments</string>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="pushButton_Help_CHNG">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>90</y>
-       <width>151</width>
-       <height>24</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Tutorial: CHNG</string>
-     </property>
-    </widget>
-   </widget>
-   <widget class="QGroupBox" name="groupBox_Diplomas">
-    <property name="geometry">
-     <rect>
-      <x>380</x>
-      <y>0</y>
-      <width>171</width>
-      <height>161</height>
-     </rect>
+    <property name="text">
+     <string>Welcome to the Degree &amp; Transcript Evaluator Assistant</string>
     </property>
-    <property name="title">
-     <string>Diplomas</string>
+    <property name="alignment">
+     <set>Qt::AlignmentFlag::AlignCenter</set>
     </property>
-    <widget class="QPushButton" name="pushButton_DiplDates">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>30</y>
-       <width>151</width>
-       <height>24</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Enter Diploma Dates</string>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="pushButton_Help_SHADIPL">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>60</y>
-       <width>151</width>
-       <height>24</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Tutorial: SHADIPL</string>
-     </property>
-    </widget>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
@@ -188,7 +449,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>580</width>
+     <width>500</width>
      <height>21</height>
     </rect>
    </property>
@@ -205,6 +466,13 @@
     </property>
     <addaction name="actionAlways_On_Top"/>
    </widget>
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>File</string>
+    </property>
+    <addaction name="actionDataImport"/>
+   </widget>
+   <addaction name="menuFile"/>
    <addaction name="menuUser"/>
    <addaction name="menuWindow"/>
   </widget>
@@ -225,6 +493,11 @@
    </property>
    <property name="text">
     <string>Always On Top?</string>
+   </property>
+  </action>
+  <action name="actionDataImport">
+   <property name="text">
+    <string>Import</string>
    </property>
   </action>
  </widget>

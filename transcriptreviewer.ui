@@ -144,6 +144,13 @@
     </property>
     <addaction name="actionAlways_On_Top"/>
    </widget>
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>File</string>
+    </property>
+    <addaction name="actionDataImport"/>
+   </widget>
+   <addaction name="menuFile"/>
    <addaction name="menuConfig"/>
    <addaction name="menuWindow"/>
   </widget>
@@ -164,6 +171,11 @@
    </property>
    <property name="text">
     <string>Always On Top?</string>
+   </property>
+  </action>
+  <action name="actionDataImport">
+   <property name="text">
+    <string>Import</string>
    </property>
   </action>
  </widget>
